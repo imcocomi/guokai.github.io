@@ -6,7 +6,7 @@
     <title>Kai Guo/郭 凯/郭 凱</title>
     <style>
         :root {
-            --primary-color: #1a73e8; 
+            --primary-color: #0B3861; /* Deep blue for primary elements */
             --secondary-color: #f8f9fa;
             --text-color: #202124;
             --light-text: #5f6368;
@@ -41,11 +41,12 @@
         }
         
         nav {
-            background-color: white;
+            background-color: var(--primary-color); /* Deep blue for top navigation bar */
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             position: sticky;
             top: 0;
             z-index: 1000;
+            color: white;
         }
         
         .nav-container {
@@ -58,7 +59,7 @@
         .logo {
             font-size: 1.5rem;
             font-weight: bold;
-            color: var(--primary-color);
+            color: white; /* Changed to white for visibility on dark background */
             text-decoration: none;
         }
         
@@ -73,13 +74,13 @@
         
         .nav-links a {
             text-decoration: none;
-            color: var(--text-color);
+            color: white; /* Changed to white for visibility on dark background */
             font-weight: 500;
             transition: color 0.3s;
         }
         
         .nav-links a:hover {
-            color: var(--primary-color);
+            color: #cce0ff; /* Lighter blue for hover state */
         }
         
         .hero {
@@ -405,18 +406,17 @@
     <section class="hero">
         <div class="container">
             <div class="hero">
-                <img src="my_photo2.jpg" alt="my_photo" class="hero-image">
+                <img src="my_photo2.png" alt="my_photo" class="hero-image">
                 <div class="hero-content">
                     <h1>Kai Guo/郭 凯/郭 凱</h1>
                     <p lang="en">PhD Candidate | University of Tokyo</p>
                     <p lang="ja">博士課程 | 東京大学</p>
                     <p lang="zh">博士在读 | 东京大学</p>
                     <ul class="social-links">
-                        <li><a href="#"><i class="fab fa-google"></i></a></li>
-                        <li><a href="#"><i class="fab fa-github"></i></a></li>
-                        <li><a href="#"><i class="fab fa-linkedin"></i></a></li>
-                        <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                        <li><a href="#"><i class="fas fa-envelope"></i></a></li>
+                        <li><a href="https://scholar.google.com/citations?user=o3zI7mUAAAAJ&hl=ja"><i class="fab fa-google"></i></a></li>
+                        <li><a href="https://github.com/imcocomi"><i class="fab fa-github"></i></a></li>
+                        <li><a href="https://www.linkedin.com/in/kai-guo-97a639291/"><i class="fab fa-linkedin"></i></a></li>
+                        <li><a href="guo-kai@g.ecc.u-tokyo.ac.jp"><i class="fas fa-envelope"></i></a></li>
                     </ul>
                 </div>
             </div>
@@ -446,37 +446,46 @@
     <section id="research">
         <div class="container">
             <h2 lang="en">Research Topics</h2>
+            <h2 lang="ja">研究テーマ</h2>
             <h2 lang="zh">研究方向</h2>
             
             <div class="research-item">
                 <div class="research-title" lang="en">Binocular Rivalry User Interface</div>
+                <div class="research-title" lang="ja">両眼視野闘争ユーザーインターフェース</div>
                 <div class="research-title" lang="zh">双眼竞争用户界面</div>
                 <div class="research-description" lang="en">
                     My research explores how binocular rivalry can be leveraged to create novel user interfaces that provide enhanced information display and interaction techniques. By presenting different stimuli to each eye, we can create unique perceptual experiences that have applications in augmented reality, accessibility, and information visualization.
+                </div>
+                <div class="research-description" lang="ja">
+                    両眼に異なる視覚刺激を提示することで生じる視野闘争現象を活用した、新しいユーザーインターフェース設計に関する研究です。この手法により、拡張現実、アクセシビリティ、情報可視化などの分野で応用可能な独自の知覚体験を創出できます。
                 </div>
                 <div class="research-description" lang="zh">
                     我的研究探索了如何利用双眼竞争来创建提供增强信息显示和交互技术的新型用户界面。通过向每只眼睛呈现不同的刺激，我们可以创造独特的感知体验，这些体验在增强现实、可访问性和信息可视化方面有应用。
                 </div>
                 <div class="research-links">
-                    <a href="#"><i class="fas fa-link"></i> <span lang="en">Project Website</span><span lang="zh">项目网站</span></a>
+                    <a href="#"><i class="fas fa-link"></i> <span lang="en">Project Website</span><span lang="ja">プロジェクトサイト</span><span lang="zh">项目网站</span></a>
                     <a href="#"><i class="fab fa-github"></i> GitHub</a>
-                    <a href="#"><i class="fas fa-file-pdf"></i> <span lang="en">Paper</span><span lang="zh">论文</span></a>
+                    <a href="#"><i class="fas fa-file-pdf"></i> <span lang="en">Paper</span><span lang="ja">論文</span><span lang="zh">论文</span></a>
                 </div>
             </div>
             
             <div class="research-item">
                 <div class="research-title" lang="en">Binocular Rivalry Visual Effects</div>
+                <div class="research-title" lang="ja">両眼視野闘争視覚効果</div>
                 <div class="research-title" lang="zh">双眼竞争视觉效果</div>
                 <div class="research-description" lang="en">
                     This research direction focuses on creating visual effects that utilize dichoptic color differences to induce perceptual phenomena. By manipulating how colors are presented to each eye, we can create visual experiences that appear paranormal or impossible, with applications in entertainment, art, and perception studies.
+                </div>
+                <div class="research-description" lang="ja">
+                    両眼に異なる色彩を提示する手法を用いて、知覚現象を誘発する視覚効果の創出に焦点を当てた研究です。色彩の提示方法を操作することで、超常現象のような視覚体験を生み出し、エンターテイメント、芸術、知覚研究などの分野に応用できます。
                 </div>
                 <div class="research-description" lang="zh">
                     这个研究方向专注于创建利用双眼色差诱导感知现象的视觉效果。通过操纵向每只眼睛呈现颜色的方式，我们可以创造看起来超自然或不可能的视觉体验，这些体验在娱乐、艺术和感知研究方面有应用。
                 </div>
                 <div class="research-links">
-                    <a href="#"><i class="fas fa-link"></i> <span lang="en">Project Website</span><span lang="zh">项目网站</span></a>
+                    <a href="#"><i class="fas fa-link"></i> <span lang="en">Project Website</span><span lang="ja">プロジェクトサイト</span><span lang="zh">项目网站</span></a>
                     <a href="#"><i class="fab fa-github"></i> GitHub</a>
-                    <a href="#"><i class="fas fa-file-pdf"></i> <span lang="en">Paper</span><span lang="zh">论文</span></a>
+                    <a href="#"><i class="fas fa-file-pdf"></i> <span lang="en">Paper</span><span lang="ja">論文</span><span lang="zh">论文</span></a>
                 </div>
             </div>
         </div>
@@ -485,7 +494,7 @@
     <section id="education">
         <div class="container">
             <h2 lang="en">Education</h2>
-            <h2 lang="ja">教育</h2>
+            <h2 lang="ja">学歴</h2>
             <h2 lang="zh">教育背景</h2>
 
             <div class="education-item">
@@ -588,9 +597,9 @@
             <h2 lang="zh">获奖荣誉</h2>
             
             <div class="award-item">
-                <div class="award-title" lang="en">Outstanding Student Award, SICE (Society of Instrument and Control Engineers) Outstanding Student Award, 2025</div>
-                <div class="award-title" lang="ja">優秀学生賞, 計測自動制御学会 (SICE) 優秀学生賞, 2025</div>
-                <div class="award-title" lang="zh">优秀学生奖, SICE（计测自动控制学会）优秀学生奖, 2025</div>
+                <div class="award-title" lang="en">Outstanding Student Award, SICE (Society of Instrument and Control Engineers), 2025</div>
+                <div class="award-title" lang="ja">優秀学生賞, 計測自動制御学会 (SICE), 2025</div>
+                <div class="award-title" lang="zh">优秀学生奖, SICE（计测自动控制学会）, 2025</div>
             </div>
             
             <div class="award-item">
@@ -674,6 +683,18 @@
                 </div>
                 
                 <div class="skill-category">
+                    <h3 lang="en">Tools</h3>
+                    <h3 lang="ja">ツール</h3>
+                    <h3 lang="zh">工具</h3>
+                    <ul class="skill-list">
+                        <li><i class="fas fa-tools"></i> Unity3D</li>
+                        <li><i class="fas fa-tools"></i> OpenCV</li>
+                        <li><i class="fas fa-tools"></i> Blender</li>
+                        <li><i class="fas fa-tools"></i> Adobe Illustrator, Premiere Pro</li>
+                    </ul>
+                </div>
+                
+                <div class="skill-category">
                     <h3 lang="en">Certification</h3>
                     <h3 lang="ja">資格</h3>
                     <h3 lang="zh">证书</h3>
@@ -682,49 +703,6 @@
                         <li><i class="fas fa-certificate"></i> <span lang="en">TOEIC: 865 (2023)</span><span lang="ja">TOEIC: 865点 (2023)</span><span lang="zh">TOEIC: 865分 (2023)</span></li>
                         <li><i class="fas fa-certificate"></i> <span lang="en">Level 3 in Bookkeeping (2021)</span><span lang="ja">簿記3級 (2021)</span><span lang="zh">簿记3级 (2021)</span></li>
                         <li><i class="fas fa-certificate"></i> <span lang="en">JLPT N1 (2018)</span><span lang="ja">日本語能力試験N1 (2018)</span><span lang="zh">日语能力测试N1 (2018)</span></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <section id="skills">
-        <div class="container">
-            <h2 lang="en">Skills</h2>
-            <h2 lang="zh">技能</h2>
-            
-            <div class="skills-container">
-                <div class="skill-category">
-                    <h3 lang="en">Programming</h3>
-                    <h3 lang="zh">编程</h3>
-                    <ul class="skill-list">
-                        <li><i class="fas fa-code"></i> Python</li>
-                        <li><i class="fas fa-code"></i> C++</li>
-                        <li><i class="fas fa-code"></i> JavaScript</li>
-                        <li><i class="fas fa-code"></i> MATLAB</li>
-                        <li><i class="fas fa-code"></i> R</li>
-                    </ul>
-                </div>
-                
-                <div class="skill-category">
-                    <h3 lang="en">Tools</h3>
-                    <h3 lang="zh">工具</h3>
-                    <ul class="skill-list">
-                        <li><i class="fas fa-tools"></i> Unity3D</li>
-                        <li><i class="fas fa-tools"></i> OpenCV</li>
-                        <li><i class="fas fa-tools"></i> Matlab</li>
-                        <li><i class="fas fa-tools"></i> Blender</li>
-                        <li><i class="fas fa-tools"></i> Adobe Illustrator, Premiere Pro</li>
-                    </ul>
-                </div>
-                
-                <div class="skill-category">
-                    <h3 lang="en">Languages</h3>
-                    <h3 lang="zh">语言</h3>
-                    <ul class="skill-list">
-                        <li><i class="fas fa-language"></i> Chinese</li>
-                        <li><i class="fas fa-language"></i> Japanese</li>
-                        <li><i class="fas fa-language"></i> English</li>
                     </ul>
                 </div>
             </div>
@@ -807,6 +785,5 @@
                 });
             });
         });
-    </script>
-</body>
-</html>
+    </script>" lang="en">"Binocular Rivalry by Presenting Different Colors to the Left and Right Eyes: The University of Tokyo's HMD-based Technology"</div>
+                <div class="award-description
