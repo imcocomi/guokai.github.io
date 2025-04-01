@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -139,6 +139,12 @@
             color: var(--primary-color);
         }
         
+        h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--text-color);
+        }
+        
         .about-content {
             display: flex;
             justify-content: space-between;
@@ -146,53 +152,26 @@
         }
         
         .about-text {
-            flex: 2;
-            padding-right: 2rem;
+            width: 100%;
         }
         
-        .about-details {
-            flex: 1;
-            background-color: var(--secondary-color);
-            padding: 1.5rem;
-            border-radius: 8px;
-        }
-        
-        .about-details h3 {
-            margin-bottom: 1rem;
-            font-size: 1.2rem;
-        }
-        
-        .about-details ul {
-            list-style: none;
-        }
-        
-        .about-details li {
-            margin-bottom: 0.5rem;
-        }
-        
-        .about-details strong {
-            display: inline-block;
-            width: 100px;
-            font-weight: 600;
-        }
-        
-        .publication-item, .research-item {
+        .publication-item, .research-item, .award-item {
             margin-bottom: 2rem;
             padding-bottom: 1rem;
             border-bottom: 1px dashed var(--border-color);
         }
         
-        .publication-item:last-child, .research-item:last-child {
+        .publication-item:last-child, .research-item:last-child, .award-item:last-child {
             border-bottom: none;
         }
         
-        .publication-title, .research-title {
+        .publication-title, .research-title, .award-title {
             font-size: 1.3rem;
             font-weight: 600;
             margin-bottom: 0.5rem;
         }
         
-        .publication-authors, .research-description {
+        .publication-authors, .research-description, .award-description {
             margin-bottom: 0.5rem;
             color: var(--light-text);
         }
@@ -213,18 +192,40 @@
             text-decoration: underline;
         }
         
-        .teaching-item {
+        .education-item {
             margin-bottom: 1.5rem;
         }
         
-        .teaching-title {
+        .education-degree {
             font-size: 1.2rem;
             font-weight: 600;
             margin-bottom: 0.5rem;
         }
         
-        .teaching-details {
-            color: var(--light-text);
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+        
+        .skill-category {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .skill-list {
+            list-style: none;
+        }
+        
+        .skill-list li {
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .skill-list i {
+            color: var(--primary-color);
+            margin-right: 0.5rem;
         }
         
         .contact-content {
@@ -250,51 +251,6 @@
             width: 24px;
             color: var(--primary-color);
             margin-right: 0.5rem;
-        }
-        
-        .contact-form {
-            flex: 1;
-            margin-left: 2rem;
-        }
-        
-        .form-group {
-            margin-bottom: 1rem;
-        }
-        
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 500;
-        }
-        
-        .form-group input, .form-group textarea {
-            width: 100%;
-            padding: 0.8rem;
-            border: 1px solid var(--border-color);
-            border-radius: 4px;
-            font-family: inherit;
-            font-size: 1rem;
-        }
-        
-        .form-group textarea {
-            height: 150px;
-            resize: vertical;
-        }
-        
-        button {
-            background-color: var(--primary-color);
-            color: white;
-            border: none;
-            padding: 0.8rem 1.5rem;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 1rem;
-            font-weight: 500;
-            transition: background-color 0.3s;
-        }
-        
-        button:hover {
-            background-color: #0b5cca;
         }
         
         footer {
@@ -329,6 +285,34 @@
         
         .back-to-top:hover {
             background-color: #0b5cca;
+        }
+        
+        .language-switcher {
+            position: absolute;
+            top: 0.5rem;
+            right: 1.5rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .language-switcher select {
+            padding: 0.3rem 0.6rem;
+            border-radius: 4px;
+            border: 1px solid var(--border-color);
+            background-color: white;
+            font-size: 0.9rem;
+        }
+        
+        [lang="zh"] {
+            display: none;
+        }
+        
+        .lang-zh [lang="en"] {
+            display: none;
+        }
+        
+        .lang-zh [lang="zh"] {
+            display: block;
         }
         
         @media (max-width: 768px) {
@@ -373,13 +357,18 @@
                 flex-direction: column;
             }
             
-            .contact-form {
-                margin-left: 0;
-                margin-top: 2rem;
+            .skills-container {
+                flex-direction: column;
+            }
+            
+            .language-switcher {
+                position: static;
+                margin-top: 1rem;
+                justify-content: center;
             }
         }
     </style>
-    <!-- 引用Font Awesome图标库 -->
+    <!-- Font Awesome icon library -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
@@ -387,12 +376,20 @@
         <div class="container nav-container">
             <a href="#" class="logo">Kai Guo/郭 凯/郭 凱</a>
             <ul class="nav-links">
-                <li><a href="#about">About Me</a></li>
-                <li><a href="#research">Research Topic</a></li>
-                <li><a href="#education">Education</a></li>
-                <li><a href="#publications">Publications</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="#about" lang="en">About Me</a><a href="#about" lang="zh">关于我</a></li>
+                <li><a href="#research" lang="en">Research</a><a href="#research" lang="zh">研究方向</a></li>
+                <li><a href="#education" lang="en">Education</a><a href="#education" lang="zh">教育背景</a></li>
+                <li><a href="#publications" lang="en">Publications</a><a href="#publications" lang="zh">发表论文</a></li>
+                <li><a href="#awards" lang="en">Awards</a><a href="#awards" lang="zh">获奖荣誉</a></li>
+                <li><a href="#skills" lang="en">Skills</a><a href="#skills" lang="zh">技能</a></li>
+                <li><a href="#contact" lang="en">Contact</a><a href="#contact" lang="zh">联系方式</a></li>
             </ul>
+            <div class="language-switcher">
+                <select id="langSelect">
+                    <option value="en">English</option>
+                    <option value="zh">中文</option>
+                </select>
+            </div>
         </div>
     </nav>
     
@@ -402,7 +399,8 @@
                 <img src="my_photo.png" alt="my_photo" class="hero-image">
                 <div class="hero-content">
                     <h1>Kai Guo/郭 凯/郭 凱</h1>
-                    <p>Master | Utokyo</p>
+                    <p lang="en">PhD Candidate | University of Tokyo</p>
+                    <p lang="zh">博士候选人 | 东京大学</p>
                     <ul class="social-links">
                         <li><a href="#"><i class="fab fa-google"></i></a></li>
                         <li><a href="#"><i class="fab fa-github"></i></a></li>
@@ -417,21 +415,15 @@
     
     <section id="about">
         <div class="container">
-            <h2>About Me</h2>
+            <h2 lang="en">About Me</h2>
+            <h2 lang="zh">关于我</h2>
             <div class="about-content">
                 <div class="about-text">
-                    <p>I am a master student at the University of Tokyo (Utokyo), focusing on research in binocular rivalry and its applications in user interface design and visual effects.</p>
-                    <p>My research interests include human-computer interaction, visual perception, and innovative display technologies.</p>
-                </div>
-                <div class="about-details">
-                    <h3>Details</h3>
-                    <ul>
-                        <li><strong>Position:</strong> Master Student</li>
-                        <li><strong>University:</strong> The University of Tokyo</li>
-                        <li><strong>Department:</strong> Graduate School of Frontier Sciences</li>
-                        <li><strong>Research:</strong> Binocular Rivalry, HCI</li>
-                        <li><strong>Email:</strong> a1037736871@icloud.com</li>
-                    </ul>
+                    <p lang="en">I am a PhD candidate at the University of Tokyo (UTokyo), focusing on research in binocular rivalry and its applications in user interface design and visual effects.</p>
+                    <p lang="en">My research interests include human-computer interaction, visual perception, and innovative display technologies.</p>
+                    
+                    <p lang="zh">我是东京大学的博士候选人，专注于双眼竞争及其在用户界面设计和视觉效果中的应用研究。</p>
+                    <p lang="zh">我的研究兴趣包括人机交互、视觉感知和创新显示技术。</p>
                 </div>
             </div>
         </div>
@@ -439,50 +431,79 @@
     
     <section id="research">
         <div class="container">
-            <h2>Research Topics</h2>
+            <h2 lang="en">Research Topics</h2>
+            <h2 lang="zh">研究方向</h2>
+            
             <div class="research-item">
-                <div class="research-title">Binocular Rivalry User Interface</div>
-                <div class="research-description">
+                <div class="research-title" lang="en">Binocular Rivalry User Interface</div>
+                <div class="research-title" lang="zh">双眼竞争用户界面</div>
+                <div class="research-description" lang="en">
                     My research explores how binocular rivalry can be leveraged to create novel user interfaces that provide enhanced information display and interaction techniques. By presenting different stimuli to each eye, we can create unique perceptual experiences that have applications in augmented reality, accessibility, and information visualization.
                 </div>
+                <div class="research-description" lang="zh">
+                    我的研究探索了如何利用双眼竞争来创建提供增强信息显示和交互技术的新型用户界面。通过向每只眼睛呈现不同的刺激，我们可以创造独特的感知体验，这些体验在增强现实、可访问性和信息可视化方面有应用。
+                </div>
                 <div class="research-links">
-                    <a href="#"><i class="fas fa-link"></i> Project Website</a>
+                    <a href="#"><i class="fas fa-link"></i> <span lang="en">Project Website</span><span lang="zh">项目网站</span></a>
                     <a href="#"><i class="fab fa-github"></i> GitHub</a>
-                    <a href="#"><i class="fas fa-file-pdf"></i> Paper</a>
+                    <a href="#"><i class="fas fa-file-pdf"></i> <span lang="en">Paper</span><span lang="zh">论文</span></a>
                 </div>
             </div>
             
             <div class="research-item">
-                <div class="research-title">Binocular Rivalry Visual Effects</div>
-                <div class="research-description">
+                <div class="research-title" lang="en">Binocular Rivalry Visual Effects</div>
+                <div class="research-title" lang="zh">双眼竞争视觉效果</div>
+                <div class="research-description" lang="en">
                     This research direction focuses on creating visual effects that utilize dichoptic color differences to induce perceptual phenomena. By manipulating how colors are presented to each eye, we can create visual experiences that appear paranormal or impossible, with applications in entertainment, art, and perception studies.
                 </div>
+                <div class="research-description" lang="zh">
+                    这个研究方向专注于创建利用双眼色差诱导感知现象的视觉效果。通过操纵向每只眼睛呈现颜色的方式，我们可以创造看起来超自然或不可能的视觉体验，这些体验在娱乐、艺术和感知研究方面有应用。
+                </div>
                 <div class="research-links">
-                    <a href="#"><i class="fas fa-link"></i> Project Website</a>
+                    <a href="#"><i class="fas fa-link"></i> <span lang="en">Project Website</span><span lang="zh">项目网站</span></a>
                     <a href="#"><i class="fab fa-github"></i> GitHub</a>
-                    <a href="#"><i class="fas fa-file-pdf"></i> Paper</a>
+                    <a href="#"><i class="fas fa-file-pdf"></i> <span lang="en">Paper</span><span lang="zh">论文</span></a>
                 </div>
             </div>
         </div>
     </section>
 
-    <section> id="education">
+    <section id="education">
         <div class="container">
-            <h2>Education</h2>
+            <h2 lang="en">Education</h2>
+            <h2 lang="zh">教育背景</h2>
 
-            <div class="education-item"
-                <div class="education-degree"><strong>2025~..., Phd candidate. Environmental Engineering, The University of Tokyo<strong> in Virtual Reality.</div>
-                <div class="education-degree"><strong>2023~2025, M.Sc. Environmental Engineering, The University of Tokyo<strong> in Virtual Reality.</div>
-                <div class="education-degree"><strong>2019~2023, B.Sc. Computer Science, Niigata University<strong> in Radar Algorithm.</div>
+            <div class="education-item">
+                <div class="education-degree" lang="en">2025-Present: PhD Candidate in Environmental Engineering, The University of Tokyo</div>
+                <div class="education-degree" lang="zh">2025-至今: 博士候选人，环境工程，东京大学</div>
+                <p lang="en">Research focus: Virtual Reality</p>
+                <p lang="zh">研究方向：虚拟现实</p>
+            </div>
+            
+            <div class="education-item">
+                <div class="education-degree" lang="en">2023-2025: M.Sc. in Environmental Engineering, The University of Tokyo</div>
+                <div class="education-degree" lang="zh">2023-2025: 硕士，环境工程，东京大学</div>
+                <p lang="en">Research focus: Virtual Reality</p>
+                <p lang="zh">研究方向：虚拟现实</p>
+            </div>
+            
+            <div class="education-item">
+                <div class="education-degree" lang="en">2019-2023: B.Sc. in Computer Science, Niigata University</div>
+                <div class="education-degree" lang="zh">2019-2023: 学士，计算机科学，新潟大学</div>
+                <p lang="en">Research focus: Radar Algorithm</p>
+                <p lang="zh">研究方向：雷达算法</p>
             </div>
         </div>
     </section>
             
-    
     <section id="publications">
         <div class="container">
-            <h2>Publications</h2>
+            <h2 lang="en">Publications</h2>
+            <h2 lang="zh">发表论文</h2>
 
+            <h3 lang="en">Journal Papers</h3>
+            <h3 lang="zh">期刊论文</h3>
+            
             <div class="publication-item">
                 <div class="publication-title">Visual Presentation Method for Paranormal Phenomena through Binocular Rivalry Induced by Dichoptic Color Differences</div>
                 <div class="publication-authors"><strong>Kai Guo</strong>, Juro Hosoi, Yuki Shimomura, Yuki Ban, and Shin'Ichi Warisawa</div>
@@ -493,20 +514,23 @@
             </div>
             
             <div class="publication-item">
-                <div class="publication-title">Paranormal Phenomenon Visual Experience through Binocular Rivalry in Virtual Reality</div>
-                <div class="publication-authors"><strong>Kai Guo</strong>, Juro Hosoi, Yuki Shimomura, Yuki Ban, and Shin'Ichi Warisawa</div>
-                <div class="publication-journal">SIGGRAPH Asia 2024 Emerging Technologies (SA '24). Association for Computing Machinery, New York, NY, USA, Article 11, 1–2.</div>
-                <div class="publication-links">
-                    <a href="https://doi.org/10.1145/3681755.3688949"><i class="fas fa-quote-right"></i> DOI: 10.1145/3681755.3688949</a>
-                </div>
-            </div>
-            
-            <div class="publication-item">
                 <div class="publication-title">GUI Presentation Method based on Binocular Rivalry for Non-overlay Information Recognition in Visual Scenes</div>
                 <div class="publication-authors"><strong>Kai Guo</strong>, Yuki Shimomura, Juro Hosoi, Yuki Ban, and Shin'Ichi Warisawa</div>
                 <div class="publication-journal">IEEE Transactions on Visualization and Computer Graphics (Early Access)</div>
                 <div class="publication-links">
                     <a href="https://doi.org/10.1145/3652920.3652939"><i class="fas fa-quote-right"></i> DOI: 10.1145/3652920.3652939</a>
+                </div>
+            </div>
+
+            <h3 lang="en">Conference Papers</h3>
+            <h3 lang="zh">会议论文</h3>
+            
+            <div class="publication-item">
+                <div class="publication-title">Paranormal Phenomenon Visual Experience through Binocular Rivalry in Virtual Reality</div>
+                <div class="publication-authors"><strong>Kai Guo</strong>, Juro Hosoi, Yuki Shimomura, Yuki Ban, and Shin'Ichi Warisawa</div>
+                <div class="publication-journal">SIGGRAPH Asia 2024 Emerging Technologies (SA '24). Association for Computing Machinery, New York, NY, USA, Article 11, 1–2.</div>
+                <div class="publication-links">
+                    <a href="https://doi.org/10.1145/3681755.3688949"><i class="fas fa-quote-right"></i> DOI: 10.1145/3681755.3688949</a>
                 </div>
             </div>
             
@@ -530,15 +554,99 @@
         </div>
     </section>
     
+    <section id="awards">
+        <div class="container">
+            <h2 lang="en">Awards & Honors</h2>
+            <h2 lang="zh">获奖荣誉</h2>
+            
+            <div class="award-item">
+                <div class="award-title" lang="en">Best Paper Award - SIGGRAPH Asia 2024</div>
+                <div class="award-title" lang="zh">最佳论文奖 - SIGGRAPH Asia 2024</div>
+                <div class="award-description" lang="en">
+                    Awarded for the paper "Paranormal Phenomenon Visual Experience through Binocular Rivalry in Virtual Reality"
+                </div>
+                <div class="award-description" lang="zh">
+                    论文"虚拟现实中通过双眼竞争的超自然现象视觉体验"获奖
+                </div>
+            </div>
+            
+            <div class="award-item">
+                <div class="award-title" lang="en">UTokyo Excellence Scholarship, 2023-2025</div>
+                <div class="award-title" lang="zh">东京大学卓越奖学金, 2023-2025</div>
+                <div class="award-description" lang="en">
+                    Full scholarship granted based on academic excellence and research potential
+                </div>
+                <div class="award-description" lang="zh">
+                    基于学术优秀和研究潜力的全额奖学金
+                </div>
+            </div>
+            
+            <div class="award-item">
+                <div class="award-title" lang="en">Outstanding Undergraduate Thesis Award, Niigata University, 2023</div>
+                <div class="award-title" lang="zh">优秀本科论文奖, 新潟大学, 2023</div>
+                <div class="award-description" lang="en">
+                    Awarded for exceptional undergraduate research in radar algorithms
+                </div>
+                <div class="award-description" lang="zh">
+                    因雷达算法领域的出色本科研究而获奖
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="skills">
+        <div class="container">
+            <h2 lang="en">Skills</h2>
+            <h2 lang="zh">技能</h2>
+            
+            <div class="skills-container">
+                <div class="skill-category">
+                    <h3 lang="en">Programming</h3>
+                    <h3 lang="zh">编程</h3>
+                    <ul class="skill-list">
+                        <li><i class="fas fa-code"></i> Python</li>
+                        <li><i class="fas fa-code"></i> C++</li>
+                        <li><i class="fas fa-code"></i> JavaScript</li>
+                        <li><i class="fas fa-code"></i> MATLAB</li>
+                        <li><i class="fas fa-code"></i> R</li>
+                    </ul>
+                </div>
+                
+                <div class="skill-category">
+                    <h3 lang="en">Research Tools</h3>
+                    <h3 lang="zh">研究工具</h3>
+                    <ul class="skill-list">
+                        <li><i class="fas fa-tools"></i> Unity3D</li>
+                        <li><i class="fas fa-tools"></i> Unreal Engine</li>
+                        <li><i class="fas fa-tools"></i> OpenCV</li>
+                        <li><i class="fas fa-tools"></i> TensorFlow</li>
+                        <li><i class="fas fa-tools"></i> PyTorch</li>
+                    </ul>
+                </div>
+                
+                <div class="skill-category">
+                    <h3 lang="en">Languages</h3>
+                    <h3 lang="zh">语言</h3>
+                    <ul class="skill-list">
+                        <li><i class="fas fa-language"></i> English (Fluent)</li>
+                        <li><i class="fas fa-language"></i> Japanese (Fluent)</li>
+                        <li><i class="fas fa-language"></i> Chinese (Native)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    
     <section id="contact">
         <div class="container">
-            <h2>Contact</h2>
+            <h2 lang="en">Contact</h2>
+            <h2 lang="zh">联系方式</h2>
             <div class="contact-content">
                 <div class="contact-info">
                     <ul>
                         <li><i class="fas fa-envelope"></i> a1037736871@icloud.com</li>
-                        <li><i class="fas fa-map-marker-alt"></i> University of Tokyo, Tokyo, Japan</li>
-                        <li><i class="fas fa-university"></i> Graduate School of Frontier Sciences</li>
+                        <li><i class="fas fa-map-marker-alt"></i> <span lang="en">University of Tokyo, Tokyo, Japan</span><span lang="zh">东京大学，东京，日本</span></li>
+                        <li><i class="fas fa-university"></i> <span lang="en">Graduate School of Frontier Sciences</span><span lang="zh">新领域创成科学研究科</span></li>
                     </ul>
                 </div>
             </div>
@@ -547,8 +655,10 @@
     
     <footer>
         <div class="container">
-            <p>&copy; 2025 Kai Guo. All rights reserved.</p>
-            <p>Last updated: March 2025</p>
+            <p lang="en">&copy; 2025 Kai Guo. All rights reserved.</p>
+            <p lang="zh">&copy; 2025 郭凯. 版权所有.</p>
+            <p lang="en">Last updated: April 2025</p>
+            <p lang="zh">最后更新: 2025年4月</p>
         </div>
     </footer>
     
@@ -557,6 +667,18 @@
     </a>
     
     <script>
+        // Language switcher
+        const langSelect = document.getElementById('langSelect');
+        const body = document.body;
+        
+        langSelect.addEventListener('change', function() {
+            if (this.value === 'zh') {
+                body.classList.add('lang-zh');
+            } else {
+                body.classList.remove('lang-zh');
+            }
+        });
+        
         // Back to top button
         const backToTop = document.getElementById('backToTop');
         
