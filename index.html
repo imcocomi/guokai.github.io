@@ -6,6 +6,7 @@
     <title>Kai Guo/郭 凯/郭 凱</title>
     <style>
         :root {
+            --primary-color: #0d47a1; /* Adding deep blue color as primary color */
             --secondary-color: #f8f9fa;
             --text-color: #202124;
             --light-text: #5f6368;
@@ -303,11 +304,20 @@
             font-size: 0.9rem;
         }
         
+        /* Language display controls */
         [lang="zh"] {
             display: none;
         }
         
-        .lang-zh [lang="en"], .lang-ja [lang="en"] {
+        [lang="ja"] {
+            display: none;
+        }
+        
+        .lang-zh [lang="en"] {
+            display: none;
+        }
+        
+        .lang-zh [lang="ja"] {
             display: none;
         }
         
@@ -315,14 +325,19 @@
             display: block;
         }
         
+        .lang-ja [lang="en"] {
+            display: none;
+        }
+        
+        .lang-ja [lang="zh"] {
+            display: none;
+        }
+        
         .lang-ja [lang="ja"] {
             display: block;
         }
         
-        [lang="ja"] {
-            display: none;
-        }
-        
+        /* Mobile responsiveness improvements */
         @media (max-width: 768px) {
             .nav-container {
                 flex-direction: column;
@@ -331,11 +346,12 @@
             
             .nav-links {
                 margin-top: 1rem;
+                flex-wrap: wrap;
+                justify-content: center;
             }
             
             .nav-links li {
-                margin-left: 1rem;
-                margin-right: 1rem;
+                margin: 0.3rem 0.5rem;
             }
             
             .hero {
@@ -416,12 +432,134 @@
                         <li><a href="https://scholar.google.com/citations?user=o3zI7mUAAAAJ&hl=ja"><i class="fab fa-google"></i></a></li>
                         <li><a href="https://github.com/imcocomi"><i class="fab fa-github"></i></a></li>
                         <li><a href="https://www.linkedin.com/in/kai-guo-97a639291/"><i class="fab fa-linkedin"></i></a></li>
-                        <li><a href="guo-kai@g.ecc.u-tokyo.ac.jp"><i class="fas fa-envelope"></i></a></li>
+                        <li><a href="mailto:guo-kai@g.ecc.u-tokyo.ac.jp"><i class="fas fa-envelope"></i></a></li>
                     </ul>
                 </div>
             </div>
         </div>
     </section>
+    
+    <section id="skills">
+        <div class="container">
+            <h2 lang="en">Skills</h2>
+            <h2 lang="ja">スキル</h2>
+            <h2 lang="zh">技能</h2>
+            
+            <div class="skills-container">
+                <div class="skill-category">
+                    <h3 lang="en">Languages</h3>
+                    <h3 lang="ja">言語</h3>
+                    <h3 lang="zh">语言</h3>
+                    <ul class="skill-list">
+                        <li><i class="fas fa-language"></i> <span lang="en">Chinese (Native)</span><span lang="ja">中国語 (ネイティブ)</span><span lang="zh">中文（母语）</span></li>
+                        <li><i class="fas fa-language"></i> <span lang="en">Japanese (Fluent)</span><span lang="ja">日本語 (流暢)</span><span lang="zh">日语（流利）</span></li>
+                        <li><i class="fas fa-language"></i> <span lang="en">English (Fluent)</span><span lang="ja">英語 (流暢)</span><span lang="zh">英语（流利）</span></li>
+                    </ul>
+                </div>
+                
+                <div class="skill-category">
+                    <h3 lang="en">Programming</h3>
+                    <h3 lang="ja">プログラミング</h3>
+                    <h3 lang="zh">编程</h3>
+                    <ul class="skill-list">
+                        <li><i class="fas fa-code"></i> C#, C++, C, Matlab, Python</li>
+                    </ul>
+                </div>
+                
+                <div class="skill-category">
+                    <h3 lang="en">Tools</h3>
+                    <h3 lang="ja">ツール</h3>
+                    <h3 lang="zh">工具</h3>
+                    <ul class="skill-list">
+                        <li><i class="fas fa-tools"></i> Unity3D</li>
+                        <li><i class="fas fa-tools"></i> OpenCV</li>
+                        <li><i class="fas fa-tools"></i> Blender</li>
+                        <li><i class="fas fa-tools"></i> Adobe Illustrator, Premiere Pro</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="contact">
+        <div class="container">
+            <h2 lang="en">Contact</h2>
+            <h2 lang="ja">連絡先</h2>
+            <h2 lang="zh">联系方式</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <ul>
+                        <li><i class="fas fa-envelope"></i> a1037736871@icloud.com</li>
+                        <li><i class="fas fa-map-marker-alt"></i> <span lang="en">University of Tokyo, Tokyo, Japan</span><span lang="ja">東京大学, 東京, 日本</span><span lang="zh">东京大学，东京，日本</span></li>
+                        <li><i class="fas fa-university"></i> <span lang="en">Graduate School of Frontier Sciences</span><span lang="ja">新領域創成科学研究科</span><span lang="zh">新领域创成科学研究科</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="container">
+            <p lang="en">&copy; 2025 Kai Guo. All rights reserved.</p>
+            <p lang="ja">&copy; 2025 郭凱. 全著作権所有.</p>
+            <p lang="zh">&copy; 2025 郭凯. 版权所有.</p>
+            <p lang="en">Last updated: April 2025</p>
+            <p lang="ja">最終更新日: 2025年4月</p>
+            <p lang="zh">最后更新: 2025年4月</p>
+        </div>
+    </footer>
+    
+    <a href="#" class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+    
+    <script>
+        // Language switcher
+        const langSelect = document.getElementById('langSelect');
+        const body = document.body;
+        
+        langSelect.addEventListener('change', function() {
+            if (this.value === 'zh') {
+                body.classList.add('lang-zh');
+                body.classList.remove('lang-ja');
+            } else if (this.value === 'ja') {
+                body.classList.add('lang-ja');
+                body.classList.remove('lang-zh');
+            } else {
+                body.classList.remove('lang-zh');
+                body.classList.remove('lang-ja');
+            }
+        });
+        
+        // Back to top button
+        const backToTop = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        });
+        
+        backToTop.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+        
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
     
     <section id="about">
         <div class="container">
@@ -667,122 +805,3 @@
             </div>
         </div>
     </section>
-    
-    <section id="skills">
-        <div class="container">
-            <h2 lang="en">Skills</h2>
-            <h2 lang="ja">スキル</h2>
-            <h2 lang="zh">技能</h2>
-            
-            <div class="skills-container">
-                <div class="skill-category">
-                    <h3 lang="en">Languages</h3>
-                    <h3 lang="ja">言語</h3>
-                    <h3 lang="zh">语言</h3>
-                    <ul class="skill-list">
-                        <li><i class="fas fa-language"></i> <span lang="en">Chinese (Native)</span><span lang="ja">中国語 (ネイティブ)</span><span lang="zh">中文（母语）</span></li>
-                        <li><i class="fas fa-language"></i> <span lang="en">Japanese (Fluent)</span><span lang="ja">日本語 (流暢)</span><span lang="zh">日语（流利）</span></li>
-                        <li><i class="fas fa-language"></i> <span lang="en">English (Fluent)</span><span lang="ja">英語 (流暢)</span><span lang="zh">英语（流利）</span></li>
-                    </ul>
-                </div>
-                
-                <div class="skill-category">
-                    <h3 lang="en">Programming</h3>
-                    <h3 lang="ja">プログラミング</h3>
-                    <h3 lang="zh">编程</h3>
-                    <ul class="skill-list">
-                        <li><i class="fas fa-code"></i> C#, C++, C, Matlab, Python</li>
-                    </ul>
-                </div>
-                
-                <div class="skill-category">
-                    <h3 lang="en">Tools</h3>
-                    <h3 lang="ja">ツール</h3>
-                    <h3 lang="zh">工具</h3>
-                    <ul class="skill-list">
-                        <li><i class="fas fa-tools"></i> Unity3D</li>
-                        <li><i class="fas fa-tools"></i> OpenCV</li>
-                        <li><i class="fas fa-tools"></i> Blender</li>
-                        <li><i class="fas fa-tools"></i> Adobe Illustrator, Premiere Pro</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <section id="contact">
-        <div class="container">
-            <h2 lang="en">Contact</h2>
-            <h2 lang="ja">連絡先</h2>
-            <h2 lang="zh">联系方式</h2>
-            <div class="contact-content">
-                <div class="contact-info">
-                    <ul>
-                        <li><i class="fas fa-envelope"></i> a1037736871@icloud.com</li>
-                        <li><i class="fas fa-map-marker-alt"></i> <span lang="en">University of Tokyo, Tokyo, Japan</span><span lang="ja">東京大学, 東京, 日本</span><span lang="zh">东京大学，东京，日本</span></li>
-                        <li><i class="fas fa-university"></i> <span lang="en">Graduate School of Frontier Sciences</span><span lang="ja">新領域創成科学研究科</span><span lang="zh">新领域创成科学研究科</span></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <footer>
-        <div class="container">
-            <p lang="en">&copy; 2025 Kai Guo. All rights reserved.</p>
-            <p lang="ja">&copy; 2025 郭凱. 全著作権所有.</p>
-            <p lang="zh">&copy; 2025 郭凯. 版权所有.</p>
-            <p lang="en">Last updated: April 2025</p>
-            <p lang="ja">最終更新日: 2025年4月</p>
-            <p lang="zh">最后更新: 2025年4月</p>
-        </div>
-    </footer>
-    
-    <a href="#" class="back-to-top" id="backToTop">
-        <i class="fas fa-arrow-up"></i>
-    </a>
-    
-    <script>
-        // Language switcher
-        const langSelect = document.getElementById('langSelect');
-        const body = document.body;
-        
-        langSelect.addEventListener('change', function() {
-            if (this.value === 'zh') {
-                body.classList.add('lang-zh');
-                body.classList.remove('lang-ja');
-            } else if (this.value === 'ja') {
-                body.classList.add('lang-ja');
-                body.classList.remove('lang-zh');
-            } else {
-                body.classList.remove('lang-zh');
-                body.classList.remove('lang-ja');
-            }
-        });
-        
-        // Back to top button
-        const backToTop = document.getElementById('backToTop');
-        
-        window.addEventListener('scroll', () => {
-            if (window.pageYOffset > 300) {
-                backToTop.classList.add('visible');
-            } else {
-                backToTop.classList.remove('visible');
-            }
-        });
-        
-        backToTop.addEventListener('click', (e) => {
-            e.preventDefault();
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
-        
-        // Smooth scrolling
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
