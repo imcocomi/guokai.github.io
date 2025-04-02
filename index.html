@@ -639,7 +639,11 @@
                 <div class="publication-item">
                     <div class="publication-title">視野闘争を用いた超常現象の視覚提示についての検討</div>
                     <div class="publication-authors"><strong>郭凱</strong>, 細井十楽, 伴祐樹, 下村祐樹, and 割澤伸一</div>
-                    <div class="publication-journal">第29回日本バーチャルリアリティ学会大会．2E1-02. 2024年
+                    <div class="publication-journal">第29回日本バーチャルリアリティ学会大会．2E1-02. 2024年</div>
+                </div>
+            </div>
+        </section>
+                        
                         
         <!-- 获奖荣誉部分 -->
         <section id="awards">
@@ -804,8 +808,7 @@
                 body.classList.remove('lang-ja');
             }
         });
-        
-        // 回到顶部按钮
+
         const backToTop = document.getElementById('backToTop');
         
         window.addEventListener('scroll', () => {
@@ -821,7 +824,6 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
         
-        // 平滑滚动
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
