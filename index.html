@@ -84,66 +84,69 @@
             padding: 0 2rem;
         }
         
-        /* Hero section with clean design */
+        /* Updated hero section to match the image */
         .hero {
-            display: flex;
             padding: 4rem 0;
             background-color: white;
             margin-bottom: 2rem;
         }
         
+        .hero-container {
+            display: flex;
+            align-items: flex-start;
+            gap: 40px;
+        }
+        
         .hero-left {
-            flex: 0 0 30%;
-            padding-right: 2rem;
             display: flex;
             flex-direction: column;
             align-items: center;
         }
         
         .hero-image {
-            width: 180px;
-            height: 180px;
+            width: 230px;
+            height: 230px;
             border-radius: 50%;
             object-fit: cover;
-            border: 3px solid white;
-            box-shadow: var(--card-shadow);
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .hero-name {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #333;
+            margin-top: 0.5rem;
         }
         
         .hero-right {
             flex: 1;
+            padding-top: 1rem;
         }
         
-        .hero-content h1 {
-            font-size: 2.2rem;
-            margin-bottom: 0.5rem;
-            color: var(--text-color);
-        }
-        
-        .hero-content p {
-            font-size: 1.1rem;
-            color: var(--light-text);
-            margin-bottom: 1rem;
+        .hero-text {
+            font-size: 1.15rem;
             line-height: 1.7;
+            color: #555;
+            margin-bottom: 1.5rem;
         }
         
-        .hero-content .social-links {
+        .social-links {
             display: flex;
             list-style: none;
             margin-top: 1.5rem;
         }
         
-        .hero-content .social-links li {
+        .social-links li {
             margin-right: 1rem;
         }
         
-        .hero-content .social-links a {
+        .social-links a {
             color: var(--light-text);
             font-size: 1.4rem;
             transition: color 0.3s;
         }
         
-        .hero-content .social-links a:hover {
+        .social-links a:hover {
             color: var(--primary-color);
         }
         
@@ -447,7 +450,7 @@
             margin-right: 0.5rem;
         }
         
-        /* Visitor counter */
+        /* Visitor counter - smaller size */
         .visitor-counter {
             margin-top: 3rem;
             text-align: center;
@@ -456,6 +459,14 @@
         .visitor-counter h3 {
             margin-bottom: 1rem;
             color: var(--text-color);
+        }
+        
+        /* Add style to make the ClusterMaps widget smaller */
+        #clustrmaps-widget-container {
+            transform: scale(0.7);
+            transform-origin: center top;
+            margin: 0 auto;
+            max-width: 300px;
         }
         
         /* Footer styling */
@@ -557,17 +568,16 @@
                 margin: 0.3rem 0.5rem;
             }
             
-            .hero {
+            .hero-container {
                 flex-direction: column;
-                padding: 2rem 0;
+                align-items: center;
             }
             
-            .hero-left {
-                padding-right: 0;
-                margin-bottom: 2rem;
+            .hero-right {
+                text-align: center;
             }
             
-            .hero-content .social-links {
+            .social-links {
                 justify-content: center;
             }
             
@@ -625,29 +635,26 @@
     </header>
     
     <main>
-        <!-- 结合了Hero部分和About Me -->
+        <!-- 修改后的Hero部分，匹配图片布局 -->
         <section class="hero">
             <div class="container">
-                <div class="hero-left">
-                    <img src="my_photo2.png" alt="my_photo" class="hero-image">
-                    <h1>Kai Guo/郭 凯/郭 凱</h1>
-                    <p lang="en">PhD Candidate | UTokyo</p>
-                    <p lang="ja">博士課程 | 東京大学</p>
-                    <p lang="zh">博士在读 | 东京大学</p>
-                </div>
-                <div class="hero-right">
-                    <div class="hero-content">
-                        <div lang="en">
+                <div class="hero-container">
+                    <div class="hero-left">
+                        <img src="my_photo2.png" alt="Kai Guo" class="hero-image">
+                        <div class="hero-name">Kai Guo/郭 凯/郭 凱</div>
+                    </div>
+                    <div class="hero-right">
+                        <div class="hero-text" lang="en">
                             <p>I am a PhD candidate at the University of Tokyo (UTokyo), focusing on research in binocular rivalry and its applications in user interface design and visual effects.</p>
                             <p>My research interests include human-computer interaction, visual perception, and Virtual Reality technologies.</p>
                         </div>
                         
-                        <div lang="ja">
+                        <div class="hero-text" lang="ja">
                             <p>私は，両眼視野闘争とそのユーザーインターフェース設計および視覚効果への応用研究に焦点を当てています．</p>
                             <p>研究分野：ヒューマンコンピュータインタラクション，バーチャル・リアリティー，視野闘争</p>
                         </div>
                         
-                        <div lang="zh">
+                        <div class="hero-text" lang="zh">
                             <p>我就读于东京大学博士课程，目前专注于双眼竞争及其在用户界面设计和视觉效果中的应用研究。</p>
                             <p>我的研究兴趣包括人机交互、视觉感知和虚拟现实(VR)。</p>
                         </div>
@@ -663,7 +670,7 @@
             </div>
         </section>
         
-        <!-- 研究项目部分 - 改为水平卡片样式 -->
+        <!-- 研究项目部分 -->
         <section id="projects">
             <div class="container">
                 <h2 lang="en">Projects</h2>
@@ -988,10 +995,11 @@
                     </div>
                 </div>
                 
-                <!-- 访问计数器 -->
+                <!-- 缩小后的访问计数器 -->
                 <div class="visitor-counter">
-                    <!-- 这里是clustermaps访问计数器 -->
-                    <script type="text/javascript" id="clstr_globe" src="//clustrmaps.com/globe.js?d=nxzJqzBgZvrn7qp5SZu7p0dWcK1Z-_-w6IIH6TcMM8w"></script>
+                    <div id="clustrmaps-widget-container">
+                        <script type="text/javascript" id="clstr_globe" src="//clustrmaps.com/globe.js?d=nxzJqzBgZvrn7qp5SZu7p0dWcK1Z-_-w6IIH6TcMM8w"></script>
+                    </div>
                 </div>
             </div>
         </section>
