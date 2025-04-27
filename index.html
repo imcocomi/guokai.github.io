@@ -6,11 +6,14 @@
     <title>Kai Guo/郭 凯/郭 凱</title>
     <style>
         :root {
-            --primary-color: #0d47a1; 
+            --primary-color: #1a73e8; 
             --secondary-color: #f8f9fa;
             --text-color: #202124;
             --light-text: #5f6368;
             --border-color: #dadce0;
+            --accent-color: #1967d2;
+            --section-padding: 2.5rem 0;
+            --card-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
         
         * {
@@ -28,21 +31,21 @@
             flex-direction: column;
         }
         
-        /* 导航栏*/
-        nav {
-            background-color: var(--primary-color);
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        /* Clean minimal style header */
+        header {
+            background-color: white;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
             position: sticky;
             top: 0;
             z-index: 1000;
             width: 100%;
         }
         
-        .nav-container {
+        .header-container {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 0.8rem 2rem;
+            padding: 1rem 2rem;
             max-width: 1200px;
             margin: 0 auto;
         }
@@ -50,7 +53,7 @@
         .logo {
             font-size: 1.5rem;
             font-weight: bold;
-            color: white;
+            color: var(--text-color);
             text-decoration: none;
         }
         
@@ -65,52 +68,69 @@
         
         .nav-links a {
             text-decoration: none;
-            color: white;
+            color: var(--text-color);
             font-weight: 500;
             transition: color 0.3s;
+            font-size: 0.95rem;
         }
         
         .nav-links a:hover {
-            color: #cce0ff;
+            color: var(--primary-color);
         }
         
         .container {
-            max-width: 1200px;
+            max-width: 1000px;
             margin: 0 auto;
-            padding: 0 1.5rem;
+            padding: 0 2rem;
         }
+        
+        /* Hero section with clean design */
         .hero {
             display: flex;
-            align-items: center;
-            padding: 3rem 0;
-            background-color: var(--secondary-color);
+            padding: 4rem 0;
+            background-color: white;
             margin-bottom: 2rem;
         }
         
+        .hero-left {
+            flex: 0 0 30%;
+            padding-right: 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
         .hero-image {
-            width: 200px;
-            height: 200px;
+            width: 180px;
+            height: 180px;
             border-radius: 50%;
             object-fit: cover;
-            border: 4px solid white;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            margin-right: 2rem;
+            border: 3px solid white;
+            box-shadow: var(--card-shadow);
+            margin-bottom: 1rem;
+        }
+        
+        .hero-right {
+            flex: 1;
         }
         
         .hero-content h1 {
-            font-size: 2.5rem;
+            font-size: 2.2rem;
             margin-bottom: 0.5rem;
+            color: var(--text-color);
         }
         
         .hero-content p {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             color: var(--light-text);
             margin-bottom: 1rem;
+            line-height: 1.7;
         }
         
         .hero-content .social-links {
             display: flex;
             list-style: none;
+            margin-top: 1.5rem;
         }
         
         .hero-content .social-links li {
@@ -118,12 +138,18 @@
         }
         
         .hero-content .social-links a {
-            color: var(--primary-color);
-            font-size: 1.5rem;
+            color: var(--light-text);
+            font-size: 1.4rem;
+            transition: color 0.3s;
         }
         
+        .hero-content .social-links a:hover {
+            color: var(--primary-color);
+        }
+        
+        /* Clean section styling */
         section {
-            padding: 2rem 0;
+            padding: var(--section-padding);
             margin-bottom: 1rem;
             border-bottom: 1px solid var(--border-color);
             display: block;
@@ -135,69 +161,247 @@
         }
         
         h2 {
-            font-size: 2rem;
+            font-size: 1.8rem;
             margin-bottom: 1.5rem;
-            color: var(--primary-color);
+            color: var(--text-color);
+            position: relative;
+            display: inline-block;
+        }
+        
+        h2::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -5px;
+            width: 40px;
+            height: 3px;
+            background-color: var(--primary-color);
         }
         
         h3 {
-            font-size: 1.5rem;
+            font-size: 1.4rem;
             margin-bottom: 1rem;
             color: var(--text-color);
         }
         
-        /* about-me */
-        .about-content {
+        /* Project section with horizontal cards */
+        .project-container {
+            margin-top: 2rem;
+        }
+        
+        .project-card {
             display: flex;
-            flex-direction: column;
-            margin-bottom: 1rem;
+            margin-bottom: 2.5rem;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--card-shadow);
+            background-color: white;
+            transition: transform 0.3s, box-shadow 0.3s;
         }
         
-        .about-text {
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+        }
+        
+        .project-img-container {
+            flex: 0 0 40%;
+        }
+        
+        .project-img {
             width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
         
-        /* Reserch */
-        .research-item {
+        .project-content {
+            flex: 1;
+            padding: 1.5rem;
+        }
+        
+        .project-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+            color: var(--text-color);
+        }
+        
+        .project-description {
+            margin-bottom: 1rem;
+            color: var(--light-text);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+        
+        .project-links {
+            margin-top: 1rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+        }
+        
+        .project-link-btn {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.4rem 0.8rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: background-color 0.3s;
+        }
+        
+        .paper-btn {
+            background-color: #e8f0fe;
+            color: var(--primary-color);
+        }
+        
+        .paper-btn:hover {
+            background-color: #d2e3fc;
+        }
+        
+        .video-btn {
+            background-color: #fce8e8;
+            color: #d14836;
+        }
+        
+        .video-btn:hover {
+            background-color: #fad2d2;
+        }
+        
+        .talk-btn {
+            background-color: #fff0e0;
+            color: #f57c00;
+        }
+        
+        .talk-btn:hover {
+            background-color: #ffe0c2;
+        }
+        
+        .project-link-btn i {
+            margin-right: 0.3rem;
+        }
+        
+        /* Timeline style for education and experience */
+        .timeline {
+            position: relative;
+            margin: 2rem 0;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 2px;
+            height: 100%;
+            background-color: var(--border-color);
+        }
+        
+        .timeline-item {
+            position: relative;
+            padding-left: 2rem;
             margin-bottom: 2rem;
-            padding-bottom: 1rem;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            top: 0.5rem;
+            left: -0.35rem;
+            width: 0.7rem;
+            height: 0.7rem;
+            border-radius: 50%;
+            background-color: var(--primary-color);
+        }
+        
+        .timeline-degree {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--text-color);
+        }
+        
+        /* Publications styling */
+        .publications-container {
+            margin-top: 2rem;
+        }
+        
+        .publication-item {
+            padding-bottom: 1.5rem;
+            margin-bottom: 1.5rem;
             border-bottom: 1px dashed var(--border-color);
         }
         
-        .research-item:last-child {
+        .publication-item:last-child {
             border-bottom: none;
         }
         
-        .research-title {
-            font-size: 1.3rem;
+        .publication-title {
             font-weight: 600;
             margin-bottom: 0.5rem;
+            color: var(--text-color);
         }
         
-        .research-description {
+        .publication-authors {
             margin-bottom: 0.5rem;
             color: var(--light-text);
+            font-size: 0.95rem;
         }
         
-        .education-item {
+        .publication-journal {
+            font-style: italic;
+            margin-bottom: 0.5rem;
+            color: var(--light-text);
+            font-size: 0.95rem;
+        }
+        
+        .publication-links a {
+            display: inline-flex;
+            align-items: center;
+            color: var(--primary-color);
+            text-decoration: none;
+            font-size: 0.9rem;
+            margin-right: 1rem;
+        }
+        
+        /* Awards styling */
+        .awards-container {
+            margin-top: 2rem;
+        }
+        
+        .award-item {
+            padding-bottom: 1.5rem;
             margin-bottom: 1.5rem;
+            border-bottom: 1px dashed var(--border-color);
         }
         
-        .education-degree {
-            font-size: 1.2rem;
+        .award-item:last-child {
+            border-bottom: none;
+        }
+        
+        .award-title {
             font-weight: 600;
             margin-bottom: 0.5rem;
+            color: var(--text-color);
         }
         
+        .award-description {
+            color: var(--light-text);
+            font-size: 0.95rem;
+        }
+        
+        /* Skills styling */
         .skills-container {
             display: flex;
             flex-wrap: wrap;
             gap: 2rem;
+            margin-top: 2rem;
         }
         
         .skill-category {
             flex: 1;
-            min-width: 300px;
+            min-width: 200px;
         }
         
         .skill-list {
@@ -213,11 +417,14 @@
         .skill-list i {
             color: var(--primary-color);
             margin-right: 0.5rem;
+            font-size: 1rem;
         }
         
+        /* Contact styling */
         .contact-content {
             display: flex;
             justify-content: flex-start;
+            margin-top: 2rem;
         }
         
         .contact-info {
@@ -240,6 +447,18 @@
             margin-right: 0.5rem;
         }
         
+        /* Visitor counter */
+        .visitor-counter {
+            margin-top: 3rem;
+            text-align: center;
+        }
+        
+        .visitor-counter h3 {
+            margin-bottom: 1rem;
+            color: var(--text-color);
+        }
+        
+        /* Footer styling */
         footer {
             background-color: var(--secondary-color);
             padding: 2rem 0;
@@ -272,20 +491,21 @@
         }
         
         .back-to-top:hover {
-            background-color: #0b5cca;
+            background-color: var(--accent-color);
         }
         
-        /* 语言切换 */
+        /* Language switcher styling */
         .language-switcher {
             margin-left: 1rem;
         }
         
         .language-switcher select {
-            padding: 0.3rem 0.6rem;
+            padding: 0.4rem 0.8rem;
             border-radius: 4px;
             border: 1px solid var(--border-color);
             background-color: white;
             font-size: 0.9rem;
+            outline: none;
         }
         
         [lang="zh"] {
@@ -320,10 +540,11 @@
             display: block;
         }
         
+        /* Responsive styles */
         @media (max-width: 768px) {
-            .nav-container {
+            .header-container {
                 flex-direction: column;
-                padding: 1rem 0;
+                padding: 1rem;
             }
             
             .nav-links {
@@ -338,16 +559,33 @@
             
             .hero {
                 flex-direction: column;
-                text-align: center;
+                padding: 2rem 0;
             }
             
-            .hero-image {
-                margin-right: 0;
-                margin-bottom: 1.5rem;
+            .hero-left {
+                padding-right: 0;
+                margin-bottom: 2rem;
             }
             
             .hero-content .social-links {
                 justify-content: center;
+            }
+            
+            .project-card {
+                flex-direction: column;
+            }
+            
+            .project-img-container {
+                flex: 0 0 auto;
+                height: 200px;
+            }
+            
+            .timeline::before {
+                left: 0.5rem;
+            }
+            
+            .timeline-item {
+                padding-left: 1.5rem;
             }
             
             .skills-container {
@@ -358,54 +596,17 @@
                 margin-top: 1rem;
             }
         }
-        main {
-            display: flex;
-            flex-direction: column;
-        }
-
-        #about {
-            order: 1;
-        }
-
-        #research {
-            order: 2;
-        }
-
-        #education {
-            order: 3;
-        }
-
-        #job {
-            order: 4;
-        }
-
-        #publications {
-            order: 5;
-        }
-
-        #awards {
-            order: 6;
-        }
-
-        #skills {
-            order: 7;
-        }
-
-        #contact {
-            order: 8;
-        }
     </style>
     <!-- Font Awesome 图标库 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
     <!-- 导航栏 -->
-    <nav>
-        <div class="nav-container">
+    <header>
+        <div class="header-container">
             <a href="#" class="logo">Kai Guo/郭 凯/郭 凱</a>
             <ul class="nav-links">
-                <li><a href="#about" lang="en">About Me</a><a href="#about" lang="ja">自己紹介</a><a href="#about" lang="zh">关于我</a></li>
-                <li><a href="#research" lang="en">Research</a><a href="#research" lang="ja">研究</a><a href="#research" lang="zh">研究方向</a></li>
+                <li><a href="#projects" lang="en">Projects</a><a href="#projects" lang="ja">研究</a><a href="#projects" lang="zh">研究项目</a></li>
                 <li><a href="#education" lang="en">Education</a><a href="#education" lang="ja">教育</a><a href="#education" lang="zh">教育背景</a></li>
                 <li><a href="#job" lang="en">Job Experience</a><a href="#job" lang="ja">職歴</a><a href="#job" lang="zh">工作经历</a></li>
                 <li><a href="#publications" lang="en">Publications</a><a href="#publications" lang="ja">発表</a><a href="#publications" lang="zh">发表论文</a></li>
@@ -421,88 +622,112 @@
                 </select>
             </div>
         </div>
-    </nav>
+    </header>
     
     <main>
+        <!-- 结合了Hero部分和About Me -->
         <section class="hero">
             <div class="container">
-                <div class="hero-content">
+                <div class="hero-left">
                     <img src="my_photo2.png" alt="my_photo" class="hero-image">
                     <h1>Kai Guo/郭 凯/郭 凱</h1>
-                    <p lang="en">PhD Candidate | University of Tokyo</p>
+                    <p lang="en">PhD Candidate | UTokyo</p>
                     <p lang="ja">博士課程 | 東京大学</p>
                     <p lang="zh">博士在读 | 东京大学</p>
-                    <ul class="social-links">
-                        <li><a href="https://scholar.google.com/citations?user=o3zI7mUAAAAJ&hl=ja"><i class="fab fa-google"></i></a></li>
-                        <li><a href="https://github.com/imcocomi"><i class="fab fa-github"></i></a></li>
-                        <li><a href="https://www.linkedin.com/in/kai-guo-97a639291/"><i class="fab fa-linkedin"></i></a></li>
-                        <li><a href="mailto:guo-kai@g.ecc.u-tokyo.ac.jp"><i class="fas fa-envelope"></i></a></li>
-                    </ul>
+                </div>
+                <div class="hero-right">
+                    <div class="hero-content">
+                        <div lang="en">
+                            <p>I am a PhD candidate at the University of Tokyo (UTokyo), focusing on research in binocular rivalry and its applications in user interface design and visual effects.</p>
+                            <p>My research interests include human-computer interaction, visual perception, and Virtual Reality technologies.</p>
+                        </div>
+                        
+                        <div lang="ja">
+                            <p>私は，両眼視野闘争とそのユーザーインターフェース設計および視覚効果への応用研究に焦点を当てています．</p>
+                            <p>研究分野：ヒューマンコンピュータインタラクション，バーチャル・リアリティー，視野闘争</p>
+                        </div>
+                        
+                        <div lang="zh">
+                            <p>我就读于东京大学博士课程，目前专注于双眼竞争及其在用户界面设计和视觉效果中的应用研究。</p>
+                            <p>我的研究兴趣包括人机交互、视觉感知和虚拟现实(VR)。</p>
+                        </div>
+                        
+                        <ul class="social-links">
+                            <li><a href="https://scholar.google.com/citations?user=o3zI7mUAAAAJ&hl=ja"><i class="fab fa-google"></i></a></li>
+                            <li><a href="https://github.com/imcocomi"><i class="fab fa-github"></i></a></li>
+                            <li><a href="https://www.linkedin.com/in/kai-guo-97a639291/"><i class="fab fa-linkedin"></i></a></li>
+                            <li><a href="mailto:guo-kai@g.ecc.u-tokyo.ac.jp"><i class="fas fa-envelope"></i></a></li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </section>
         
-        <!-- 关于我部分 -->
-        <section id="about">
+        <!-- 研究项目部分 - 改为水平卡片样式 -->
+        <section id="projects">
             <div class="container">
-                <h2 lang="en">About Me</h2>
-                <h2 lang="ja">自己紹介</h2>
-                <h2 lang="zh">关于我</h2>
-                <div class="about-content">
-                    <div class="about-text">
-                        <p lang="en">I am a PhD candidate at the University of Tokyo (UTokyo), focusing on research in binocular rivalry and its applications in user interface design and visual effects.</p>
-                        <p lang="en">My research interests include human-computer interaction, visual perception, and Virtual Reality technologies.</p>
-                        
-                        <p lang="ja">私は，両眼視野闘争とそのユーザーインターフェース設計および視覚効果への応用研究に焦点を当てています．</p>
-                        <p lang="ja">研究分野：ヒューマンコンピュータインタラクション，バーチャル・リアリティー，視野闘争</p>
-                        
-                        <p lang="zh">我就读于东京大学博士课程，目前专注于双眼竞争及其在用户界面设计和视觉效果中的应用研究。</p>
-                        <p lang="zh">我的研究兴趣包括人机交互、视觉感知和虚拟现实(VR)。</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-        <!-- 研究方向部分 -->
-        <section id="research">
-            <div class="container">
-                <h2 lang="en">Research Topics</h2>
-                <h2 lang="ja">研究テーマ</h2>
-                <h2 lang="zh">研究方向</h2>
+                <h2 lang="en">Projects</h2>
+                <h2 lang="ja">研究プロジェクト</h2>
+                <h2 lang="zh">研究项目</h2>
                 
-                <div class="research-item">
-                    <div class="research-title" lang="en">Binocular Rivalry User Interface</div>
-                    <div class="research-title" lang="ja">両眼視野闘争ユーザーインターフェース</div>
-                    <div class="research-title" lang="zh">双眼竞争用户界面</div>
-                    <div class="research-description" lang="en">
-                        My research explores how binocular rivalry can be leveraged to create novel user interfaces that provide enhanced information display and interaction techniques. By presenting different stimuli to each eye, we can create unique perceptual experiences that have applications in augmented reality, accessibility, and information visualization.
+                <div class="project-container">
+                    <div class="project-card">
+                        <div class="project-img-container">
+                            <img src="/api/placeholder/600/400" alt="Binocular Rivalry UI" class="project-img">
+                        </div>
+                        <div class="project-content">
+                            <div class="project-title" lang="en">Binocular Rivalry User Interface</div>
+                            <div class="project-title" lang="ja">両眼視野闘争ユーザーインターフェース</div>
+                            <div class="project-title" lang="zh">双眼竞争用户界面</div>
+                            <div class="project-description" lang="en">
+                                My research explores how binocular rivalry can be leveraged to create novel user interfaces that provide enhanced information display and interaction techniques. By presenting different stimuli to each eye, we can create unique perceptual experiences that have applications in augmented reality, accessibility, and information visualization.
+                            </div>
+                            <div class="project-description" lang="ja">
+                                両眼に異なる視覚刺激を提示することで生じる視野闘争現象を活用した、新しいユーザーインターフェース設計に関する研究です。この手法により、拡張現実、アクセシビリティ、情報可視化などの分野で応用可能な独自の知覚体験を創出できます。
+                            </div>
+                            <div class="project-description" lang="zh">
+                                我的研究探索了如何利用双眼竞争来创建提供增强信息显示和交互技术的新型用户界面。通过向每只眼睛呈现不同的刺激，我们可以创造独特的感知体验，这些体验在增强现实、可访问性和信息可视化方面有应用。
+                            </div>
+                            <div class="project-links">
+                                <a href="https://dl.acm.org/doi/10.1145/3652920.3652939" class="project-link-btn paper-btn">
+                                    <i class="fas fa-file-pdf"></i> <span lang="en">Paper</span><span lang="ja">論文</span><span lang="zh">论文</span>
+                                </a>
+                                <a href="#" class="project-link-btn video-btn">
+                                    <i class="fas fa-video"></i> <span lang="en">Video</span><span lang="ja">動画</span><span lang="zh">视频</span>
+                                </a>
+                                <a href="#" class="project-link-btn talk-btn">
+                                    <i class="fas fa-microphone-alt"></i> <span lang="en">Talk</span><span lang="ja">講演</span><span lang="zh">演讲</span>
+                                </a>
+                            </div>
+                        </div>
                     </div>
-                    <div class="research-description" lang="ja">
-                        両眼に異なる視覚刺激を提示することで生じる視野闘争現象を活用した、新しいユーザーインターフェース設計に関する研究です。この手法により、拡張現実、アクセシビリティ、情報可視化などの分野で応用可能な独自の知覚体験を創出できます。
-                    </div>
-                    <div class="research-description" lang="zh">
-                        我的研究探索了如何利用双眼竞争来创建提供增强信息显示和交互技术的新型用户界面。通过向每只眼睛呈现不同的刺激，我们可以创造独特的感知体验，这些体验在增强现实、可访问性和信息可视化方面有应用。
-                    </div>
-                    <div class="research-links">
-                        <a href="https://dl.acm.org/doi/10.1145/3652920.3652939"><i class="fas fa-file-pdf"></i> <span lang="en">Paper</span><span lang="ja">論文</span><span lang="zh">论文</span></a>
-                    </div>
-                </div>
-                
-                <div class="research-item">
-                    <div class="research-title" lang="en">Binocular Rivalry Visual Effects</div>
-                    <div class="research-title" lang="ja">両眼視野闘争視覚効果</div>
-                    <div class="research-title" lang="zh">双眼竞争视觉效果</div>
-                    <div class="research-description" lang="en">
-                        This research direction focuses on creating visual effects that utilize dichoptic color differences to induce perceptual phenomena. By manipulating how colors are presented to each eye, we can create visual experiences that appear paranormal or impossible, with applications in entertainment, art, and perception studies.
-                    </div>
-                    <div class="research-description" lang="ja">
-                        両眼に異なる色彩を提示する手法を用いて、知覚現象を誘発する視覚効果の創出に焦点を当てた研究です。色彩の提示方法を操作することで、超常現象のような視覚体験を生み出し、エンターテイメント、芸術、知覚研究などの分野に応用できます。
-                    </div>
-                    <div class="research-description" lang="zh">
-                        这个研究方向专注于创建利用双眼色差诱导感知现象的视觉效果。通过操纵向每只眼睛呈现颜色的方式，我们可以创造看起来超自然或不可能的视觉体验，这些体验在娱乐、艺术和感知研究方面有应用。
-                    </div>
-                    <div class="research-links">
-                        <a href="https://dl.acm.org/doi/10.1145/3681755.3688949"><i class="fas fa-file-pdf"></i> <span lang="en">Paper</span><span lang="ja">論文</span><span lang="zh">论文</span></a>
+                    
+                    <div class="project-card">
+                        <div class="project-img-container">
+                            <img src="/api/placeholder/600/400" alt="Binocular Rivalry Visual Effects" class="project-img">
+                        </div>
+                        <div class="project-content">
+                            <div class="project-title" lang="en">Binocular Rivalry Visual Effects</div>
+                            <div class="project-title" lang="ja">両眼視野闘争視覚効果</div>
+                            <div class="project-title" lang="zh">双眼竞争视觉效果</div>
+                            <div class="project-description" lang="en">
+                                This research direction focuses on creating visual effects that utilize dichoptic color differences to induce perceptual phenomena. By manipulating how colors are presented to each eye, we can create visual experiences that appear paranormal or impossible, with applications in entertainment, art, and perception studies.
+                            </div>
+                            <div class="project-description" lang="ja">
+                                両眼に異なる色彩を提示する手法を用いて、知覚現象を誘発する視覚効果の創出に焦点を当てた研究です。色彩の提示方法を操作することで、超常現象のような視覚体験を生み出し、エンターテイメント、芸術、知覚研究などの分野に応用できます。
+                            </div>
+                            <div class="project-description" lang="zh">
+                                这个研究方向专注于创建利用双眼色差诱导感知现象的视觉效果。通过操纵向每只眼睛呈现颜色的方式，我们可以创造看起来超自然或不可能的视觉体验，这些体验在娱乐、艺术和感知研究方面有应用。
+                            </div>
+                            <div class="project-links">
+                                <a href="https://dl.acm.org/doi/10.1145/3681755.3688949" class="project-link-btn paper-btn">
+                                    <i class="fas fa-file-pdf"></i> <span lang="en">Paper</span><span lang="ja">論文</span><span lang="zh">论文</span>
+                                </a>
+                                <a href="#" class="project-link-btn video-btn">
+                                    <i class="fas fa-video"></i> <span lang="en">Video</span><span lang="ja">動画</span><span lang="zh">视频</span>
+                                </a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -515,31 +740,33 @@
                 <h2 lang="ja">学歴</h2>
                 <h2 lang="zh">教育背景</h2>
 
-                <div class="education-item">
-                    <div class="education-degree" lang="en">2025.4-Present: PhD Candidate in Environmental Engineering, The University of Tokyo</div>
-                    <div class="education-degree" lang="ja">2025.4-現在: 博士課程、環境工学、東京大学</div>
-                    <div class="education-degree" lang="zh">2025.4-至今: 博士候选人，环境工程，东京大学</div>
-                    <p lang="en">Research Topic: Binocular rivalry and its applications in user interface design and visual effects.</p>
-                    <p lang="ja">研究テーマ：両眼視野闘争とそのユーザーインターフェース設計および視覚効果への応用。</p>
-                    <p lang="zh">研究方向：双眼竞争及其在用户界面设计和视觉效果中的应用。</p>
-                </div>
-                
-                <div class="education-item">
-                    <div class="education-degree" lang="en">2023.4-2025.3: M.Sc. in Environmental Engineering, The University of Tokyo</div>
-                    <div class="education-degree" lang="ja">2023.4-2025.3: 修士、環境工学、東京大学</div>
-                    <div class="education-degree" lang="zh">2023.4-2025.3: 硕士，环境工程，东京大学</div>
-                    <p lang="en">Thesis title: GUI Presentation Method based on Binocular Rivalry for Non-overlay Information Recognition in Visual Scenes.</p>
-                    <p lang="ja">論文タイトル：視野闘争を利用した選択的注意によるUI 画面・背景情報の認識切り替え手法。</p>
-                    <p lang="zh">论文题目：基于双眼竞争的非重叠信息识别在视觉场景中的GUI呈现方法。</p>
-                </div>
-                
-                <div class="education-item">
-                    <div class="education-degree" lang="en">2019.4-2023.3: B.Sc. in Computer Science, Niigata University</div>
-                    <div class="education-degree" lang="ja">2019.4-2023.3: 学士、情報工学、新潟大学</div>
-                    <div class="education-degree" lang="zh">2019.4-2023.3: 学士，计算机科学，新潟大学</div>
-                    <p lang="en">Thesis title: Basic Study on Motion Compensation in carbon Millimeter Wave SAR by Using Range Doppler Method.</p>
-                    <p lang="ja">論文タイトル：Range Doppler法を用いた車載ミリ波SARにおける動揺補正に関する基礎検討。</p>
-                    <p lang="zh">论文题目：使用Range Doppler算法对车载毫米波雷达SAR成像中的运动补偿。</p>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-degree" lang="en">2025.4-Present: PhD Candidate in Environmental Engineering, The University of Tokyo</div>
+                        <div class="timeline-degree" lang="ja">2025.4-現在: 博士課程、環境工学、東京大学</div>
+                        <div class="timeline-degree" lang="zh">2025.4-至今: 博士候选人，环境工程，东京大学</div>
+                        <p lang="en">Research Topic: Binocular rivalry and its applications in user interface design and visual effects.</p>
+                        <p lang="ja">研究テーマ：両眼視野闘争とそのユーザーインターフェース設計および視覚効果への応用。</p>
+                        <p lang="zh">研究方向：双眼竞争及其在用户界面设计和视觉效果中的应用。</p>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-degree" lang="en">2023.4-2025.3: M.Sc. in Environmental Engineering, The University of Tokyo</div>
+                        <div class="timeline-degree" lang="ja">2023.4-2025.3: 修士、環境工学、東京大学</div>
+                        <div class="timeline-degree" lang="zh">2023.4-2025.3: 硕士，环境工程，东京大学</div>
+                        <p lang="en">Thesis title: GUI Presentation Method based on Binocular Rivalry for Non-overlay Information Recognition in Visual Scenes.</p>
+                        <p lang="ja">論文タイトル：視野闘争を利用した選択的注意によるUI 画面・背景情報の認識切り替え手法。</p>
+                        <p lang="zh">论文题目：基于双眼竞争的非重叠信息识别在视觉场景中的GUI呈现方法。</p>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-degree" lang="en">2019.4-2023.3: B.Sc. in Computer Science, Niigata University</div>
+                        <div class="timeline-degree" lang="ja">2019.4-2023.3: 学士、情報工学、新潟大学</div>
+                        <div class="timeline-degree" lang="zh">2019.4-2023.3: 学士，计算机科学，新潟大学</div>
+                        <p lang="en">Thesis title: Basic Study on Motion Compensation in carbon Millimeter Wave SAR by Using Range Doppler Method.</p>
+                        <p lang="ja">論文タイトル：Range Doppler法を用いた車載ミリ波SARにおける動揺補正に関する基礎検討。</p>
+                        <p lang="zh">论文题目：使用Range Doppler算法对车载毫米波雷达SAR成像中的运动补偿。</p>
+                    </div>
                 </div>
             </div>
         </section>
@@ -551,13 +778,15 @@
                 <h2 lang="ja">職歴</h2>
                 <h2 lang="zh">工作经历</h2>
                 
-                <div class="education-item">
-                    <div class="education-degree" lang="en">2025-2028: SPRING GX, Support for Pioneering Research Initiated by the Next Generation</div>
-                    <div class="education-degree" lang="ja">2025-2028: 次世代研究者挑戦的研究プログラム 「グリーントランスフォーメーション(GX)を先導する高度人材育成」プロジェクト</div>
-                    <div class="education-degree" lang="zh">2025-2028: SPRING GX, 次世代研究者挑战项目</div>
-                    <p lang="en">Japan Science and Technology Agency</p>
-                    <p lang="ja">国立研究開発法人科学技術振興機構</p>
-                    <p lang="zh">日本科学技术振兴机构</p>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-degree" lang="en">2025-2028: SPRING GX, Support for Pioneering Research Initiated by the Next Generation</div>
+                        <div class="timeline-degree" lang="ja">2025-2028: 次世代研究者挑戦的研究プログラム 「グリーントランスフォーメーション(GX)を先導する高度人材育成」プロジェクト</div>
+                        <div class="timeline-degree" lang="zh">2025-2028: SPRING GX, 次世代研究者挑战项目</div>
+                        <p lang="en">Japan Science and Technology Agency</p>
+                        <p lang="ja">国立研究開発法人科学技術振興機構</p>
+                        <p lang="zh">日本科学技术振兴机构</p>
+                    </div>
                 </div>
             </div>
         </section>
@@ -573,12 +802,14 @@
                 <h3 lang="ja">学術論文</h3>
                 <h3 lang="zh">期刊论文</h3>
                 
-                <div class="publication-item">
-                    <div class="publication-title">Visual presentation method for paranormal phenomena through binocular rivalry induced by dichoptic color differences</div>
-                    <div class="publication-authors"><strong>K. Guo</strong>, J. Hosoi, Y. Shimomura, Y. Ban, and S. Warisawa</div>
-                    <div class="publication-journal">IEEE Transactions on Visualization and Computer Graphics (TVCG), 2025.</div>
-                    <div class="publication-links">
-                        <a href="https://doi.org/10.1109/TVCG.2025.3549172"><i class="fas fa-quote-right"></i> DOI: 10.1109/TVCG.2025.3549172</a>
+                <div class="publications-container">
+                    <div class="publication-item">
+                        <div class="publication-title">Visual presentation method for paranormal phenomena through binocular rivalry induced by dichoptic color differences</div>
+                        <div class="publication-authors"><strong>K. Guo</strong>, J. Hosoi, Y. Shimomura, Y. Ban, and S. Warisawa</div>
+                        <div class="publication-journal">IEEE Transactions on Visualization and Computer Graphics (TVCG), 2025.</div>
+                        <div class="publication-links">
+                            <a href="https://doi.org/10.1109/TVCG.2025.3549172"><i class="fas fa-quote-right"></i> DOI: 10.1109/TVCG.2025.3549172</a>
+                        </div>
                     </div>
                 </div>
 
@@ -586,43 +817,45 @@
                 <h3 lang="ja">学会発表</h3>
                 <h3 lang="zh">会议论文</h3>
                 
-                <div class="publication-item">
-                    <div class="publication-title">Demonstration of visual presentation method for paranormal phenomena through binocular rivalry induced by dichoptic color differences</div>
-                    <div class="publication-authors"><strong>K. Guo</strong>, J. Hosoi, Y. Shimomura, Y. Ban, and S. Warisawa</div>
-                    <div class="publication-journal">in 2025 IEEE Conference on Virtual Reality and 3D User Interfaces Abstracts and Workshops (VRW), 2025.</div>
-                    <div class="publication-links">
-                        <a href="#"><i class="fas fa-quote-right"></i> DOI: to appear</a>
+                <div class="publications-container">
+                    <div class="publication-item">
+                        <div class="publication-title">Demonstration of visual presentation method for paranormal phenomena through binocular rivalry induced by dichoptic color differences</div>
+                        <div class="publication-authors"><strong>K. Guo</strong>, J. Hosoi, Y. Shimomura, Y. Ban, and S. Warisawa</div>
+                        <div class="publication-journal">in 2025 IEEE Conference on Virtual Reality and 3D User Interfaces Abstracts and Workshops (VRW), 2025.</div>
+                        <div class="publication-links">
+                            <a href="#"><i class="fas fa-quote-right"></i> DOI: to appear</a>
+                        </div>
                     </div>
-                </div>
-                
-                <div class="publication-item">
-                    <div class="publication-title">Paranormal phenomenon visual experience through binocular rivalry in virtual reality</div>
-                    <div class="publication-authors"><strong>K. Guo</strong>, J. Hosoi, Y. Ban, Y. Shimomura, and S. Warisawa</div>
-                    <div class="publication-journal">in SIGGRAPH Asia 2024 Emerging Technologies, ser. SA '24, Association for Computing Machinery, 2024.</div>
-                    <div class="publication-links">
-                        <a href="https://doi.org/10.1145/3681755.3688949"><i class="fas fa-quote-right"></i> DOI: 10.1145/3681755.3688949</a>
+                    
+                    <div class="publication-item">
+                        <div class="publication-title">Paranormal phenomenon visual experience through binocular rivalry in virtual reality</div>
+                        <div class="publication-authors"><strong>K. Guo</strong>, J. Hosoi, Y. Ban, Y. Shimomura, and S. Warisawa</div>
+                        <div class="publication-journal">in SIGGRAPH Asia 2024 Emerging Technologies, ser. SA '24, Association for Computing Machinery, 2024.</div>
+                        <div class="publication-links">
+                            <a href="https://doi.org/10.1145/3681755.3688949"><i class="fas fa-quote-right"></i> DOI: 10.1145/3681755.3688949</a>
+                        </div>
                     </div>
-                </div>
-                
-                <div class="publication-item">
-                    <div class="publication-title">GUI presentation method based on binocular rivalry for non-overlay information recognition in visual scenes</div>
-                    <div class="publication-authors"><strong>K. Guo</strong>, Y. Shimomura, J. Hosoi, Y. Ban, and S. Warisawa</div>
-                    <div class="publication-journal">in Proceedings of the Augmented Humans International Conference 2024, ser. AHs '24, Melbourne, VIC, Australia: Association for Computing Machinery, 2024, pp. 193–204.</div>
-                    <div class="publication-links">
-                        <a href="https://doi.org/10.1145/3652920.3652939"><i class="fas fa-quote-right"></i> DOI: 10.1145/3652920.3652939</a>
+                    
+                    <div class="publication-item">
+                        <div class="publication-title">GUI presentation method based on binocular rivalry for non-overlay information recognition in visual scenes</div>
+                        <div class="publication-authors"><strong>K. Guo</strong>, Y. Shimomura, J. Hosoi, Y. Ban, and S. Warisawa</div>
+                        <div class="publication-journal">in Proceedings of the Augmented Humans International Conference 2024, ser. AHs '24, Melbourne, VIC, Australia: Association for Computing Machinery, 2024, pp. 193–204.</div>
+                        <div class="publication-links">
+                            <a href="https://doi.org/10.1145/3652920.3652939"><i class="fas fa-quote-right"></i> DOI: 10.1145/3652920.3652939</a>
+                        </div>
                     </div>
-                </div>
 
-                <div class="publication-item">
-                    <div class="publication-title">ビジュアルシーンと重畳せずに認識可能な視野闘争を用いた視覚的なUI提示手法の検討</div>
-                    <div class="publication-authors"><strong>郭凱</strong>, 下村祐樹, 細井十楽, 伴祐樹, and 割澤伸一</div>
-                    <div class="publication-journal">第28回一般社団法人情報処理学会シンポジウム Interaction 2024．2P89．2024年3月．</div>
-                </div>
-                
-                <div class="publication-item">
-                    <div class="publication-title">視野闘争を用いた超常現象の視覚提示についての検討</div>
-                    <div class="publication-authors"><strong>郭凱</strong>, 細井十楽, 伴祐樹, 下村祐樹, and 割澤伸一</div>
-                    <div class="publication-journal">第29回日本バーチャルリアリティ学会大会．2E1-02. 2024年</div>
+                    <div class="publication-item">
+                        <div class="publication-title">ビジュアルシーンと重畳せずに認識可能な視野闘争を用いた視覚的なUI提示手法の検討</div>
+                        <div class="publication-authors"><strong>郭凱</strong>, 下村祐樹, 細井十楽, 伴祐樹, and 割澤伸一</div>
+                        <div class="publication-journal">第28回一般社団法人情報処理学会シンポジウム Interaction 2024．2P89．2024年3月．</div>
+                    </div>
+                    
+                    <div class="publication-item">
+                        <div class="publication-title">視野闘争を用いた超常現象の視覚提示についての検討</div>
+                        <div class="publication-authors"><strong>郭凱</strong>, 細井十楽, 伴祐樹, 下村祐樹, and 割澤伸一</div>
+                        <div class="publication-journal">第29回日本バーチャルリアリティ学会大会．2E1-02. 2024年</div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -635,61 +868,63 @@
                 <h2 lang="ja">受賞歴</h2>
                 <h2 lang="zh">获奖荣誉</h2>
                 
-                <div class="award-item">
-                    <div class="award-title" lang="en">Outstanding Student Award, SICE (Society of Instrument and Control Engineers), 2025</div>
-                    <div class="award-title" lang="ja">優秀学生賞, 計測自動制御学会 (SICE), 2025</div>
-                    <div class="award-title" lang="zh">优秀学生奖, SICE（计测自动控制学会）, 2025</div>
-                </div>
-                
-                <div class="award-item">
-                    <div class="award-title" lang="en">Best Demo Award in SIGGRAPH Asia 2024 Emerging Technologies (SA '24), 2024</div>
-                    <div class="award-title" lang="ja">SIGGRAPH Asia 2024 Emerging Technologies (SA '24) ベストデモ賞, 2024</div>
-                    <div class="award-title" lang="zh">SIGGRAPH Asia 2024 Emerging Technologies（SA '24）最佳演示奖, 2024</div>
-                </div>
-                
-                <div class="award-item">
-                    <div class="award-title" lang="en">News Coverage, THE DAILY INDUSTRIAL NEWS (日刊工業新聞), December 6, 2024</div>
-                    <div class="award-title" lang="ja">掲載, 日刊工業新聞, 2024年12月6日</div>
-                    <div class="award-title" lang="zh">媒体报道, 日刊工业新闻, 2024年12月6日</div>
-                    <div class="award-description" lang="en">"Binocular Rivalry by Presenting Different Colors to the Left and Right Eyes: The University of Tokyo's HMD-based Technology"</div>
-                    <div class="award-description" lang="ja">"左右の目に違う色提示で視野闘争　東大がHMD使い技術"</div>
-                    <div class="award-description" lang="zh">"向左右眼呈现不同颜色的双眼竞争：东京大学的HMD基础技术"</div>
-                </div>
-                
-                <div class="award-item">
-                    <div class="award-title" lang="en">University Prize for Global Talent Special Award, Niigata University, 2023</div>
-                    <div class="award-title" lang="ja">グローバル人材特別賞, 新潟大学, 2023</div>
-                    <div class="award-title" lang="zh">全球人才特别奖, 新潟大学, 2023</div>
-                </div>
-                
-                <div class="award-item">
-                    <div class="award-title" lang="en">Monbukagakusho Honors Scholarship, JASSO, 2022-2023</div>
-                    <div class="award-title" lang="ja">旧文部科学省外国人留学生学習奨励費, 日本学生支援機構, 2022-2023</div>
-                    <div class="award-title" lang="zh">文部科学省优秀留学生奖学金, 日本学生支援机构, 2022-2023</div>
-                </div>
-                
-                <div class="award-item">
-                    <div class="award-title" lang="en">Educational Development Fellowship, UNION TOOL CO., 2021-2022</div>
-                    <div class="award-title" lang="ja">学習奨励費, ユニオンツール育英奨学会, 2021-2022</div>
-                    <div class="award-title" lang="zh">财团奖学金, UNION TOOL CO., 2021-2022</div>
-                    <div class="award-description" lang="en">Awarded for academic excellence</div>
-                    <div class="award-description" lang="ja">学業優秀者に授与</div>
-                    <div class="award-description" lang="zh">因学业优秀而获得</div>
-                </div>
-                
-                <div class="award-item">
-                    <div class="award-title" lang="en">Educational Development Fellowship, UNION TOOL CO., 2020-2021</div>
-                    <div class="award-title" lang="ja">学習奨励費, ユニオンツール育英奨学会, 2020-2021</div>
-                    <div class="award-title" lang="zh">财团奖学金, UNION TOOL CO., 2020-2021</div>
-                    <div class="award-description" lang="en">Awarded for academic excellence</div>
-                    <div class="award-description" lang="ja">学業優秀者に授与</div>
-                    <div class="award-description" lang="zh">因学业优秀而获得</div>
-                </div>
-                
-                <div class="award-item">
-                    <div class="award-title" lang="en">Monbukagakusho Honors Scholarship, JASSO, 2019-2020</div>
-                    <div class="award-title" lang="ja">旧文部科学省外国人留学生学習奨励費, 日本学生支援機構, 2019-2020</div>
-                    <div class="award-title" lang="zh">文部科学省优秀留学生奖学金, 日本学生支援机构, 2019-2020</div>
+                <div class="awards-container">
+                    <div class="award-item">
+                        <div class="award-title" lang="en">Outstanding Student Award, SICE (Society of Instrument and Control Engineers), 2025</div>
+                        <div class="award-title" lang="ja">優秀学生賞, 計測自動制御学会 (SICE), 2025</div>
+                        <div class="award-title" lang="zh">优秀学生奖, SICE（计测自动控制学会）, 2025</div>
+                    </div>
+                    
+                    <div class="award-item">
+                        <div class="award-title" lang="en">Best Demo Award in SIGGRAPH Asia 2024 Emerging Technologies (SA '24), 2024</div>
+                        <div class="award-title" lang="ja">SIGGRAPH Asia 2024 Emerging Technologies (SA '24) ベストデモ賞, 2024</div>
+                        <div class="award-title" lang="zh">SIGGRAPH Asia 2024 Emerging Technologies（SA '24）最佳演示奖, 2024</div>
+                    </div>
+                    
+                    <div class="award-item">
+                        <div class="award-title" lang="en">News Coverage, THE DAILY INDUSTRIAL NEWS (日刊工業新聞), December 6, 2024</div>
+                        <div class="award-title" lang="ja">掲載, 日刊工業新聞, 2024年12月6日</div>
+                        <div class="award-title" lang="zh">媒体报道, 日刊工业新闻, 2024年12月6日</div>
+                        <div class="award-description" lang="en">"Binocular Rivalry by Presenting Different Colors to the Left and Right Eyes: The University of Tokyo's HMD-based Technology"</div>
+                        <div class="award-description" lang="ja">"左右の目に違う色提示で視野闘争　東大がHMD使い技術"</div>
+                        <div class="award-description" lang="zh">"向左右眼呈现不同颜色的双眼竞争：东京大学的HMD基础技术"</div>
+                    </div>
+                    
+                    <div class="award-item">
+                        <div class="award-title" lang="en">University Prize for Global Talent Special Award, Niigata University, 2023</div>
+                        <div class="award-title" lang="ja">グローバル人材特別賞, 新潟大学, 2023</div>
+                        <div class="award-title" lang="zh">全球人才特别奖, 新潟大学, 2023</div>
+                    </div>
+                    
+                    <div class="award-item">
+                        <div class="award-title" lang="en">Monbukagakusho Honors Scholarship, JASSO, 2022-2023</div>
+                        <div class="award-title" lang="ja">旧文部科学省外国人留学生学習奨励費, 日本学生支援機構, 2022-2023</div>
+                        <div class="award-title" lang="zh">文部科学省优秀留学生奖学金, 日本学生支援机构, 2022-2023</div>
+                    </div>
+                    
+                    <div class="award-item">
+                        <div class="award-title" lang="en">Educational Development Fellowship, UNION TOOL CO., 2021-2022</div>
+                        <div class="award-title" lang="ja">学習奨励費, ユニオンツール育英奨学会, 2021-2022</div>
+                        <div class="award-title" lang="zh">财团奖学金, UNION TOOL CO., 2021-2022</div>
+                        <div class="award-description" lang="en">Awarded for academic excellence</div>
+                        <div class="award-description" lang="ja">学業優秀者に授与</div>
+                        <div class="award-description" lang="zh">因学业优秀而获得</div>
+                    </div>
+                    
+                    <div class="award-item">
+                        <div class="award-title" lang="en">Educational Development Fellowship, UNION TOOL CO., 2020-2021</div>
+                        <div class="award-title" lang="ja">学習奨励費, ユニオンツール育英奨学会, 2020-2021</div>
+                        <div class="award-title" lang="zh">财团奖学金, UNION TOOL CO., 2020-2021</div>
+                        <div class="award-description" lang="en">Awarded for academic excellence</div>
+                        <div class="award-description" lang="ja">学業優秀者に授与</div>
+                        <div class="award-description" lang="zh">因学业优秀而获得</div>
+                    </div>
+                    
+                    <div class="award-item">
+                        <div class="award-title" lang="en">Monbukagakusho Honors Scholarship, JASSO, 2019-2020</div>
+                        <div class="award-title" lang="ja">旧文部科学省外国人留学生学習奨励費, 日本学生支援機構, 2019-2020</div>
+                        <div class="award-title" lang="zh">文部科学省优秀留学生奖学金, 日本学生支援机构, 2019-2020</div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -752,6 +987,12 @@
                         </ul>
                     </div>
                 </div>
+                
+                <!-- 访问计数器 -->
+                <div class="visitor-counter">
+                    <!-- 这里是clustermaps访问计数器 -->
+                    <script type="text/javascript" id="clstr_globe" src="//clustrmaps.com/globe.js?d=nxzJqzBgZvrn7qp5SZu7p0dWcK1Z-_-w6IIH6TcMM8w"></script>
+                </div>
             </div>
         </section>
     </main>
@@ -792,6 +1033,7 @@
             }
         });
 
+        // 回到顶部按钮
         const backToTop = document.getElementById('backToTop');
         
         window.addEventListener('scroll', () => {
@@ -807,6 +1049,7 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
         
+        // 平滑滚动
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
