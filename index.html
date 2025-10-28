@@ -1,0 +1,1099 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kai Guo 郭 凱</title>
+    <style>
+        :root {
+            --primary-color: #1a73e8; 
+            --secondary-color: #f8f9fa;
+            --text-color: #202124;
+            --light-text: #5f6368;
+            --border-color: #dadce0;
+            --accent-color: #1967d2;
+            --section-padding: 2.5rem 0;
+            --card-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: #ffffff;
+            display: flex;
+            flex-direction: column;
+        }
+        header {
+            background-color: white;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            width: 100%;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--text-color);
+            text-decoration: none;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 1.5rem;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+            transition: color 0.3s;
+            font-size: 0.95rem;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        .hero {
+            padding: 4rem 0;
+            background-color: white;
+            margin-bottom: 2rem;
+        }
+        
+        .hero-container {
+            display: flex;
+            align-items: flex-start;
+            gap: 40px;
+        }
+        
+        .hero-left {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .hero-image {
+            width: 230px;
+            height: 230px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 1.5rem;
+        }
+        
+        .hero-name {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #333;
+            margin-top: 0.5rem;
+        }
+        
+        .hero-right {
+            flex: 1;
+            padding-top: 1rem;
+        }
+        
+        .hero-text {
+            font-size: 1.15rem;
+            line-height: 1.7;
+            color: #555;
+            margin-bottom: 1.5rem;
+        }
+        
+        .social-links {
+            display: flex;
+            list-style: none;
+            margin-top: 1.5rem;
+        }
+        
+        .social-links li {
+            margin-right: 1rem;
+        }
+        
+        .social-links a {
+            color: var(--light-text);
+            font-size: 1.4rem;
+            transition: color 0.3s;
+        }
+        
+        .social-links a:hover {
+            color: var(--primary-color);
+        }
+        
+        /* Clean section styling */
+        section {
+            padding: var(--section-padding);
+            margin-bottom: 1rem;
+            border-bottom: 1px solid var(--border-color);
+            display: block;
+            width: 100%;
+        }
+        
+        section:last-child {
+            border-bottom: none;
+        }
+        
+        h2 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-color);
+            position: relative;
+            display: inline-block;
+        }
+        
+        h2::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -5px;
+            width: 40px;
+            height: 3px;
+            background-color: var(--primary-color);
+        }
+        
+        h3 {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            color: var(--text-color);
+        }
+        
+        /* Project section */
+        .project-container {
+            margin-top: 2rem;
+        }
+        
+        .project-card {
+            display: flex;
+            margin-bottom: 2.5rem;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--card-shadow);
+            background-color: white;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+        }
+        
+        .project-img-container {
+            flex: 0 0 40%;
+        }
+        
+        .project-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .project-content {
+            flex: 1;
+            padding: 1.5rem;
+        }
+        
+        .project-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+            color: var(--text-color);
+        }
+        
+        .project-description {
+            margin-bottom: 1rem;
+            color: var(--light-text);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+        
+        .project-links {
+            margin-top: 1rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+        }
+        
+        .project-link-btn {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.4rem 0.8rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: background-color 0.3s;
+        }
+        
+        .paper-btn {
+            background-color: #e8f0fe;
+            color: var(--primary-color);
+        }
+        
+        .paper-btn:hover {
+            background-color: #d2e3fc;
+        }
+        
+        .video-btn {
+            background-color: #fce8e8;
+            color: #d14836;
+        }
+        
+        .video-btn:hover {
+            background-color: #fad2d2;
+        }
+        
+        .talk-btn {
+            background-color: #fff0e0;
+            color: #f57c00;
+        }
+        
+        .talk-btn:hover {
+            background-color: #ffe0c2;
+        }
+        
+        .project-link-btn i {
+            margin-right: 0.3rem;
+        }
+        
+        /* Timeline style for education and experience */
+        .timeline {
+            position: relative;
+            margin: 2rem 0;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 2px;
+            height: 100%;
+            background-color: var(--border-color);
+        }
+        
+        .timeline-item {
+            position: relative;
+            padding-left: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            top: 0.5rem;
+            left: -0.35rem;
+            width: 0.7rem;
+            height: 0.7rem;
+            border-radius: 50%;
+            background-color: var(--primary-color);
+        }
+        
+        .timeline-degree {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--text-color);
+        }
+        
+        /* Publications styling */
+        .publications-container {
+            margin-top: 2rem;
+        }
+        
+        .publication-item {
+            padding-bottom: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-bottom: 1px dashed var(--border-color);
+        }
+        
+        .publication-item:last-child {
+            border-bottom: none;
+        }
+        
+        .publication-title {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--text-color);
+        }
+        
+        .publication-authors {
+            margin-bottom: 0.5rem;
+            color: var(--light-text);
+            font-size: 0.95rem;
+        }
+        
+        .publication-journal {
+            font-style: italic;
+            margin-bottom: 0.5rem;
+            color: var(--light-text);
+            font-size: 0.95rem;
+        }
+        
+        .publication-links a {
+            display: inline-flex;
+            align-items: center;
+            color: var(--primary-color);
+            text-decoration: none;
+            font-size: 0.9rem;
+            margin-right: 1rem;
+        }
+        
+        /* Awards styling */
+        .awards-container {
+            margin-top: 2rem;
+        }
+        
+        .award-item {
+            padding-bottom: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-bottom: 1px dashed var(--border-color);
+        }
+        
+        .award-item:last-child {
+            border-bottom: none;
+        }
+        
+        .award-title {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--text-color);
+        }
+        
+        .award-description {
+            color: var(--light-text);
+            font-size: 0.95rem;
+        }
+        
+        /* Skills styling */
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .skill-category {
+            flex: 1;
+            min-width: 200px;
+        }
+        
+        .skill-list {
+            list-style: none;
+        }
+        
+        .skill-list li {
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .skill-list i {
+            color: var(--primary-color);
+            margin-right: 0.5rem;
+            font-size: 1rem;
+        }
+        
+        /* Contact styling */
+        .contact-content {
+            display: flex;
+            justify-content: flex-start;
+            margin-top: 2rem;
+        }
+        
+        .contact-info {
+            flex: 1;
+        }
+        
+        .contact-info ul {
+            list-style: none;
+        }
+        
+        .contact-info li {
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .contact-info i {
+            width: 24px;
+            color: var(--primary-color);
+            margin-right: 0.5rem;
+        }
+        
+        /* Visitor counter - smaller size */
+        .visitor-counter {
+            margin-top: 3rem;
+            text-align: center;
+        }
+        
+        .visitor-counter h3 {
+            margin-bottom: 1rem;
+            color: var(--text-color);
+        }
+        
+        /* Add style to make the ClusterMaps widget smaller */
+        #clustrmaps-widget-container {
+            transform: scale(0.7);
+            transform-origin: center top;
+            margin: 0 auto;
+            max-width: 300px;
+        }
+        
+        /* Footer styling */
+        footer {
+            background-color: var(--secondary-color);
+            padding: 2rem 0;
+            text-align: center;
+            color: var(--light-text);
+            margin-top: 2rem;
+        }
+        
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background-color: var(--primary-color);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: background-color 0.3s;
+            opacity: 0;
+            visibility: hidden;
+        }
+        
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .back-to-top:hover {
+            background-color: var(--accent-color);
+        }
+        
+        /* Language switcher styling */
+        .language-switcher {
+            margin-left: 1rem;
+        }
+        
+        .language-switcher select {
+            padding: 0.4rem 0.8rem;
+            border-radius: 4px;
+            border: 1px solid var(--border-color);
+            background-color: white;
+            font-size: 0.9rem;
+            outline: none;
+        }
+        
+        [lang="zh"] {
+            display: none;
+        }
+        
+        [lang="ja"] {
+            display: none;
+        }
+        
+        .lang-zh [lang="en"] {
+            display: none;
+        }
+        
+        .lang-zh [lang="ja"] {
+            display: none;
+        }
+        
+        .lang-zh [lang="zh"] {
+            display: block;
+        }
+        
+        .lang-ja [lang="en"] {
+            display: none;
+        }
+        
+        .lang-ja [lang="zh"] {
+            display: none;
+        }
+        
+        .lang-ja [lang="ja"] {
+            display: block;
+        }
+        
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                padding: 1rem;
+            }
+            
+            .nav-links {
+                margin-top: 1rem;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .nav-links li {
+                margin: 0.3rem 0.5rem;
+            }
+            
+            .hero-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .hero-right {
+                text-align: center;
+            }
+            
+            .social-links {
+                justify-content: center;
+            }
+            
+            .project-card {
+                flex-direction: column;
+            }
+            
+            .project-img-container {
+                flex: 0 0 auto;
+                height: 200px;
+            }
+            
+            .timeline::before {
+                left: 0.5rem;
+            }
+            
+            .timeline-item {
+                padding-left: 1.5rem;
+            }
+            
+            .skills-container {
+                flex-direction: column;
+            }
+            
+            .language-switcher {
+                margin-top: 1rem;
+            }
+        }
+    </style>
+    <!-- Font Awesome 图标库 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <a href="#" class="logo">Kai Guo 郭 凱</a>
+            <ul class="nav-links">
+                <li><a href="#projects" lang="en">Projects</a><a href="#projects" lang="ja">研究</a><a href="#projects" lang="zh">研究项目</a></li>
+                <li><a href="#education" lang="en">Education</a><a href="#education" lang="ja">教育</a><a href="#education" lang="zh">教育背景</a></li>
+                <li><a href="#job" lang="en">Job Experience</a><a href="#job" lang="ja">職歴</a><a href="#job" lang="zh">工作经历</a></li>
+                <li><a href="#publications" lang="en">Publications</a><a href="#publications" lang="ja">発表</a><a href="#publications" lang="zh">发表论文</a></li>
+                <li><a href="#awards" lang="en">Awards</a><a href="#awards" lang="ja">受賞歴</a><a href="#awards" lang="zh">获奖荣誉</a></li>
+                <li><a href="#skills" lang="en">Skills</a><a href="#skills" lang="ja">スキル</a><a href="#skills" lang="zh">技能</a></li>
+                <li><a href="#contact" lang="en">Contact</a><a href="#contact" lang="ja">連絡先</a><a href="#contact" lang="zh">联系方式</a></li>         
+            </ul>
+            <div class="language-switcher">
+                <select id="langSelect">
+                    <option value="en">English</option>
+                    <option value="ja">日本語</option>
+                    <option value="zh">中文</option>
+                </select>
+            </div>
+        </div>
+    </header>
+    
+    <main>
+        <section class="hero">
+            <div class="container">
+                <div class="hero-container">
+                    <div class="hero-left">
+                        <img src="my_photo2.png" alt="Kai Guo" class="hero-image">
+                        <div class="hero-name">Kai Guo 郭 凱</div>
+                    </div>
+                    <div class="hero-right">
+                        <div class="hero-text" lang="en">
+                            <p>I am a PhD candidate at the University of Tokyo (UTokyo), <a href="https://www.lhei.k.u-tokyo.ac.jp/#top" style="text-decoration: underline;">HeiLab</a>, advised by Prof. Shin'ichi Warisawa and Prof. Yuki Ban, focusing on research in binocular rivalry and its applications in user interface design and visual effects.</p>
+                            <p>My research interests include human-computer interaction, visual perception, and Virtual Reality technologies.</p>
+                        </div>
+                        
+                        <div class="hero-text" lang="ja">
+                            <p>私は，両眼視野闘争とそのユーザーインターフェース設計および視覚効果への応用研究に焦点を当てています．</p>
+                            <p>研究分野：ヒューマンコンピュータインタラクション，バーチャル・リアリティー，視野闘争</p>
+                        </div>
+                        
+                        <div class="hero-text" lang="zh">
+                            <p>我就读于东京大学博士课程，目前专注于双眼竞争及其在用户界面设计和视觉效果中的应用研究。</p>
+                            <p>我的研究兴趣包括人机交互、视觉感知和虚拟现实(VR)。</p>
+                        </div>
+                        
+                        <ul class="social-links">
+                            <li><a href="https://scholar.google.com/citations?user=o3zI7mUAAAAJ&hl=ja"><i class="fab fa-google"></i></a></li>
+                            <li><a href="https://github.com/imcocomi"><i class="fab fa-github"></i></a></li>
+                            <li><a href="https://www.linkedin.com/in/kai-guo-97a639291/"><i class="fab fa-linkedin"></i></a></li>
+                            <li><a href="mailto:guo-kai@g.ecc.u-tokyo.ac.jp"><i class="fas fa-envelope"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 研究项目部分 -->
+        <section id="projects">
+            <div class="container">
+                <h2 lang="en">Projects</h2>
+                <h2 lang="ja">研究プロジェクト</h2>
+                <h2 lang="zh">研究项目</h2>
+                
+                <div class="project-container">
+                    <div class="project-card">
+                        <div class="project-img-container">
+                            <img src="UI.png" alt="Binocular Rivalry UI" class="project-img">
+                        </div>
+                        <div class="project-content">
+                            <div class="project-title" lang="en">Binocular Rivalry User Interface</div>
+                            <div class="project-title" lang="ja">両眼視野闘争ユーザーインターフェース</div>
+                            <div class="project-title" lang="zh">双眼竞争用户界面</div>
+                            <div class="project-description" lang="en">
+                                My research investigates how binocular rivalry can be utilized to design novel user interfaces that enhance visual flexibility. By presenting different UI elements to each eye, users can selectively focus their attention to either view the graphical interface or the underlying visual scene, even when the GUI is overlaid.
+                            </div>
+                            <div class="project-description" lang="ja">
+                                両眼に異なるUI要素を提示することで生じる視野闘争現象を活用し、柔軟な視覚体験を実現する新しいユーザーインターフェース設計に関する研究です。この手法により、GUIが背後のシーンに重なっている場合でも、ユーザーは注意を向ける対象を選択し、シーンまたはGUIのいずれかを明瞭に観察できます。
+                            </div>
+                            <div class="project-description" lang="zh">
+                                我的研究探索了如何利用双眼竞争现象，设计出能够提升视觉灵活性的新型用户界面。通过向左右眼分别呈现不同的界面元素，即使GUI叠加在背景场景上，用户也可以根据自身注意力的转移，自由选择观看完整的视觉场景或界面内容。
+                            </div>
+                            <div class="project-links">
+                                <a href="https://dl.acm.org/doi/10.1145/3652920.3652939" class="project-link-btn paper-btn">
+                                    <i class="fas fa-file-pdf"></i> <span lang="en">Paper</span><span lang="ja">論文</span><span lang="zh">论文</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="project-card">
+                        <div class="project-img-container">
+                            <img src="BRVFX.png" alt="Binocular Rivalry Visual Effects" class="project-img">
+                        </div>
+                        <div class="project-content">
+                            <div class="project-title" lang="en">Binocular Rivalry Visual Effects</div>
+                            <div class="project-title" lang="ja">視野闘争エフェクト</div>
+                            <div class="project-title" lang="zh">双眼竞争视觉效果</div>
+                            <div class="project-description" lang="en">
+                                This research direction focuses on creating visual effects that utilize dichoptic images to induce perceptual phenomena. By manipulating how colors, shapes, materials ,etc are presented to each eye, we can create visual experiences that appear paranormal or impossible, with applications in entertainment, art, and perception studies.
+                            </div>
+                            <div class="project-description" lang="ja">
+                                両眼に異なる色彩を提示する手法を用いて、知覚現象を誘発する視覚効果の創出に焦点を当てた研究です。色彩の提示方法を操作することで、超常現象のような視覚体験を生み出し、エンターテイメント、芸術、知覚研究などの分野に応用できます。
+                            </div>
+                            <div class="project-description" lang="zh">
+                                这个研究方向专注于创建利用双眼色差诱导感知现象的视觉效果。通过操纵向每只眼睛呈现颜色的方式，我们可以创造看起来超自然或不可能的视觉体验，这些体验在娱乐、艺术和感知研究方面有应用。
+                            </div>
+                            <div class="project-links">
+                                <a href="https://doi.org/10.1109/TVCG.2025.3549172" class="project-link-btn paper-btn">
+                                    <i class="fas fa-file-pdf"></i> <span lang="en">Paper1</span><span lang="ja">論文1</span><span lang="zh">论文1</span>
+                                </a>
+                                <a href="https://dl.acm.org/doi/10.1145/3681755.3688949" class="project-link-btn paper-btn">
+                                    <i class="fas fa-file-pdf"></i> <span lang="en">Paper2</span><span lang="ja">論文2</span><span lang="zh">论文2</span>
+                                </a>
+                                <a href="https://www.youtube.com/watch?v=FpO6o1_0HDQ" class="project-link-btn video-btn">
+                                    <i class="fas fa-video"></i> <span lang="en">Video</span><span lang="ja">動画</span><span lang="zh">视频</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                      <div class="project-img-container">
+                        <img src="SAR.png" alt="Automotive mmWave SAR: Motion Compensation & 3D Imaging" class="project-img">
+                      </div>
+                      <div class="project-content">
+                        <div class="project-title" lang="en">Motion Compensation Algorithm for SAR Imaging</div>
+                        <div class="project-title" lang="ja">車載ミリ波レーダによるSARイメージングの動揺補正アルゴリズム</div>
+                        <div class="project-title" lang="zh">基于车载毫米波雷达的SAR成像动摇补偿算法</div>
+                        <div class="project-description" lang="en">
+                            We develop a GPS/INS-aided motion compensation algorithm for Synthetic Aperture Radar (SAR) imaging on a moving vehicle, combining Range–Doppler processing, RCMC, azimuth compression, and DOA-based beamforming to reconstruct 3D scenes. Field tests on campus with a 76–77 GHz FMCW radar achieved ~4 cm range resolution at ~15 km/h.
+                        </div>
+                        <div class="project-description" lang="ja">
+                            本研究は，走行中プラットフォームの揺れをGPS/INSで補正し，Range–Doppler法・RCMC・アジマス圧縮・DOA推定（ビームフォーマ）を統合して三次元SARイメージングを実現しました。76–77 GHz FMCWレーダを用いた学内走行実験で，約4 cmの距離分解能と約15 km/hでの有効性を確認しました。
+                        </div>
+                        <div class="project-description" lang="zh">
+                            我们在车载平台上提出一套基于 GPS/INS 的 SAR 动摇补偿流程，结合 Range–Doppler、RCMC、方位向压缩与 DOA 波束形成，实现三维重建。在 76–77 GHz FMCW 雷达的道路实验中，在约 15 km/h 速度下获得约 4 cm 的距离分辨率。
+                        </div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 教育背景部分 -->
+        <section id="education">
+            <div class="container">
+                <h2 lang="en">Education</h2>
+                <h2 lang="ja">学歴</h2>
+                <h2 lang="zh">教育背景</h2>
+
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-degree" lang="en">2025.4-Present: PhD Candidate in Environmental Engineering, The University of Tokyo</div>
+                        <div class="timeline-degree" lang="ja">2025.4-現在: 博士後期課程、環境工学、東京大学</div>
+                        <div class="timeline-degree" lang="zh">2025.4-至今: 博士在读，环境工程，东京大学</div>
+                        <p lang="en">Research Topic: Binocular rivalry and its applications in user interface design and visual effects.</p>
+                        <p lang="ja">研究テーマ：両眼視野闘争とそのユーザーインターフェース設計および視覚効果への応用。</p>
+                        <p lang="zh">研究方向：双眼竞争及其在用户界面设计和视觉效果中的应用。</p>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-degree" lang="en">2023.4-2025.3: M.Sc. in Environmental Engineering, The University of Tokyo</div>
+                        <div class="timeline-degree" lang="ja">2023.4-2025.3: 修士、環境工学、東京大学</div>
+                        <div class="timeline-degree" lang="zh">2023.4-2025.3: 硕士，环境工程，东京大学</div>
+                        <p lang="en">Thesis title: GUI Presentation Method based on Binocular Rivalry for Non-overlay Information Recognition in Visual Scenes.</p>
+                        <p lang="ja">論文タイトル：視野闘争を利用した選択的注意によるUI 画面・背景情報の認識切り替え手法。</p>
+                        <p lang="zh">论文题目：基于双眼竞争的非重叠信息识别GUI的呈现方法。</p>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-degree" lang="en">2019.4-2023.3: B.Sc. in Computer Science, Niigata University</div>
+                        <div class="timeline-degree" lang="ja">2019.4-2023.3: 学士、情報工学、新潟大学</div>
+                        <div class="timeline-degree" lang="zh">2019.4-2023.3: 学士，计算机科学，新潟大学</div>
+                        <p lang="en">Thesis title: Basic Study on Motion Compensation in carbon Millimeter Wave SAR by Using Range Doppler Method.</p>
+                        <p lang="ja">論文タイトル：Range Doppler法を用いた車載ミリ波SARにおける動揺補正に関する基礎検討。</p>
+                        <p lang="zh">论文题目：使用Range Doppler算法对车载毫米波雷达SAR成像中的运动补偿。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 工作经历部分 -->
+        <section id="job">
+            <div class="container">
+                <h2 lang="en">Job Experience</h2>
+                <h2 lang="ja">職歴</h2>
+                <h2 lang="zh">工作经历</h2>
+
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-degree" lang="en">2026-2028: JSPS Research Fellowships for Young Scientists (DC2) — provisionally selected</div>
+                        <div class="timeline-degree" lang="ja">2026-2028: 日本学術振興会 特別研究員(DC2) — 採用内定</div>
+                        <div class="timeline-degree" lang="zh">2026-2028: 日本学术振兴会 特別研究員(DC2) — 采用内定</div>
+                        <p lang="en">Japan Society for the Promotion of Science</p>
+                        <p lang="ja">日本学術振興会</p>
+                        <p lang="zh">日本学术振兴会</p>
+                    </div>
+                </div>
+                
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-degree" lang="en">2025-2028: SPRING GX, Support for Pioneering Research Initiated by the Next Generation</div>
+                        <div class="timeline-degree" lang="ja">2025-2028: 次世代研究者挑戦的研究プログラム 「グリーントランスフォーメーション(GX)を先導する高度人材育成」プロジェクト</div>
+                        <div class="timeline-degree" lang="zh">2025-2028: SPRING GX, 次世代研究者挑战项目</div>
+                        <p lang="en">Japan Science and Technology Agency</p>
+                        <p lang="ja">国立研究開発法人科学技術振興機構</p>
+                        <p lang="zh">日本国立科学技术振兴机构</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 发表论文部分 -->
+        <section id="publications">
+            <div class="container">
+                <h2 lang="en">Publications</h2>
+                <h2 lang="ja">発表</h2>
+                <h2 lang="zh">发表论文</h2>
+
+                <h3 lang="en">Journal</h3>
+                <h3 lang="ja">学術論文</h3>
+                <h3 lang="zh">期刊</h3>
+                
+                <div class="publications-container">
+                    <div class="publication-item">
+                        <div class="publication-title">Visual presentation method for paranormal phenomena through binocular rivalry induced by dichoptic color differences</div>
+                        <div class="publication-authors"><strong>K. Guo</strong>, J. Hosoi, Y. Shimomura, Y. Ban, and S. Warisawa</div>
+                        <div class="publication-journal">IEEE Transactions on Visualization and Computer Graphics (TVCG), 2025.</div>
+                        <div class="publication-links">
+                            <a href="https://doi.org/10.1109/TVCG.2025.3549172"><i class="fas fa-quote-right"></i> DOI: 10.1109/TVCG.2025.3549172</a>
+                        </div>
+                    </div>
+                </div>
+
+                <h3 lang="en">Conference Papers</h3>
+                <h3 lang="ja">学会発表</h3>
+                <h3 lang="zh">会议论文</h3>
+                
+                <div class="publications-container">
+                    <div class="publication-item">
+                        <div class="publication-title">三人称視点VRにおける身体所有感の切り替えとその影響要因の検討</div>
+                        <div class="publication-authors">胡 佳儀，<u><strong>郭 凱</strong></u>，康 中睿，伴 祐樹，割澤 伸一</div>
+                        <div class="publication-journal">第30回日本バーチャルリアリティ学会大会. 3F2-02. 2025.</div>
+                    </div>
+                
+                    <div class="publication-item">
+                        <div class="publication-title">低呼吸状態における視聴覚情報の動的提示による瞑想状態への誘導</div>
+                        <div class="publication-authors">永田 簾，<u><strong>郭 凱</strong></u>，伴 祐樹，割澤 伸一</div>
+                        <div class="publication-journal">第30回日本バーチャルリアリティ学会大会. 3G-17. 2025.</div>
+                    </div>
+            
+                    <div class="publication-item">
+                        <div class="publication-title">Demonstration of visual presentation method for paranormal phenomena through binocular rivalry induced by dichoptic color differences</div>
+                        <div class="publication-authors"><u><strong>K. Guo</strong></u>, J. Hosoi, Y. Shimomura, Y. Ban, and S. Warisawa</div>
+                        <div class="publication-journal">in 2025 IEEE Conference on Virtual Reality and 3D User Interfaces Abstracts and Workshops (VRW), 2025.</div>
+                        <div class="publication-links">
+                            <a href="https://doi.org/10.1109/VRW66409.2025.00456"><i class="fas fa-quote-right"></i> DOI: 10.1109/VRW66409.2025.00456</a>
+                        </div>
+                    </div>
+                    
+                    <div class="publication-item">
+                        <div class="publication-title">Paranormal phenomenon visual experience through binocular rivalry in virtual reality</div>
+                        <div class="publication-authors"><u><strong>K. Guo</strong></u>, J. Hosoi, Y. Ban, Y. Shimomura, and S. Warisawa</div>
+                        <div class="publication-journal">in SIGGRAPH Asia 2024 Emerging Technologies, ser. SA '24, Association for Computing Machinery, 2024.</div>
+                        <div class="publication-links">
+                            <a href="https://doi.org/10.1145/3681755.3688949"><i class="fas fa-quote-right"></i> DOI: 10.1145/3681755.3688949</a>
+                        </div>
+                    </div>
+                    
+                    <div class="publication-item">
+                        <div class="publication-title">GUI presentation method based on binocular rivalry for non-overlay information recognition in visual scenes</div>
+                        <div class="publication-authors"><u><strong>K. Guo</strong></u>, Y. Shimomura, J. Hosoi, Y. Ban, and S. Warisawa</div>
+                        <div class="publication-journal">in Proceedings of the Augmented Humans International Conference 2024, ser. AHs '24, Melbourne, VIC, Australia: Association for Computing Machinery, 2024, pp. 193–204.</div>
+                        <div class="publication-links">
+                            <a href="https://doi.org/10.1145/3652920.3652939"><i class="fas fa-quote-right"></i> DOI: 10.1145/3652920.3652939</a>
+                        </div>
+                    </div>
+
+                    <div class="publication-item">
+                        <div class="publication-title">ビジュアルシーンと重畳せずに認識可能な視野闘争を用いた視覚的なUI提示手法の検討</div>
+                        <div class="publication-authors"><u><strong>郭凱</strong></u>, 下村祐樹, 細井十楽, 伴祐樹, 割澤伸一</div>
+                        <div class="publication-journal">第28回一般社団法人情報処理学会シンポジウム Interaction 2024．2P89．2024年3月．</div>
+                    </div>
+                    
+                    <div class="publication-item">
+                        <div class="publication-title">視野闘争を用いた超常現象の視覚提示についての検討</div>
+                        <div class="publication-authors"><u><strong>郭凱</strong></u>, 細井十楽, 伴祐樹, 下村祐樹, 割澤伸一</div>
+                        <div class="publication-journal">第29回日本バーチャルリアリティ学会大会．2E1-02. 2024年</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+                        
+                        
+        <!-- 获奖荣誉部分 -->
+        <section id="awards">
+            <div class="container">
+                <h2 lang="en">Awards & Honors</h2>
+                <h2 lang="ja">受賞歴</h2>
+                <h2 lang="zh">获奖荣誉</h2>
+                
+                <div class="awards-container">
+                    <div class="award-item">
+                        <div class="award-title" lang="en">Outstanding Student Award, SICE (Society of Instrument and Control Engineers), 2025</div>
+                        <div class="award-title" lang="ja">優秀学生賞, 計測自動制御学会 (SICE), 2025</div>
+                        <div class="award-title" lang="zh">优秀学生奖, SICE（计测自动控制学会）, 2025</div>
+                    </div>
+                    
+                    <div class="award-item">
+                        <div class="award-title" lang="en">Best Demo Award in SIGGRAPH Asia 2024 Emerging Technologies (SA '24), 2024</div>
+                        <div class="award-title" lang="ja">SIGGRAPH Asia 2024 Emerging Technologies (SA '24) Best Demo Award, 2024</div>
+                        <div class="award-title" lang="zh">SIGGRAPH Asia 2024 Emerging Technologies（SA '24）Best Demo Award, 2024</div>
+                    </div>
+                    
+                    <div class="award-item">
+                        <div class="award-title" lang="en">News Coverage, THE DAILY INDUSTRIAL NEWS (日刊工業新聞), December 6, 2024</div>
+                        <div class="award-title" lang="ja">掲載, 日刊工業新聞, 2024年12月6日</div>
+                        <div class="award-title" lang="zh">媒体报道, 日刊工业新闻, 2024年12月6日</div>
+                        <div class="award-description" lang="en">"Binocular Rivalry by Presenting Different Colors to the Left and Right Eyes: The University of Tokyo's HMD-based Technology"</div>
+                        <div class="award-description" lang="ja">"左右の目に違う色提示で視野闘争　東大がHMD使い技術"</div>
+                        <div class="award-description" lang="zh">"向左右眼呈现不同颜色的双眼竞争：东京大学的HMD基础技术"</div>
+                    </div>
+                    
+                    <div class="award-item">
+                        <div class="award-title" lang="en">University Prize for Global Talent Special Award, Niigata University, 2023</div>
+                        <div class="award-title" lang="ja">グローバル人材特別賞, 新潟大学, 2023</div>
+                        <div class="award-title" lang="zh">全球人才特别奖, 新潟大学, 2023</div>
+                    </div>
+                    
+                    <div class="award-item">
+                        <div class="award-title" lang="en">Monbukagakusho Honors Scholarship, JASSO, 2022-2023</div>
+                        <div class="award-title" lang="ja">旧文部科学省外国人留学生学習奨励費, 日本学生支援機構, 2022-2023</div>
+                        <div class="award-title" lang="zh">旧文部科学省优秀留学生奖学金, 日本学生支援机构, 2022-2023</div>
+                    </div>
+                    
+                    <div class="award-item">
+                        <div class="award-title" lang="en">Educational Development Fellowship, UNION TOOL CO., 2021-2022</div>
+                        <div class="award-title" lang="ja">奨学生, ユニオンツール育英奨学会, 2021-2022</div>
+                        <div class="award-title" lang="zh">财团奖学金, UNION TOOL CO., 2021-2022</div>
+                    </div>
+                    
+                    <div class="award-item">
+                        <div class="award-title" lang="en">Educational Development Fellowship, UNION TOOL CO., 2020-2021</div>
+                        <div class="award-title" lang="ja">奨学生, ユニオンツール育英奨学会, 2020-2021</div>
+                        <div class="award-title" lang="zh">财团奖学金, UNION TOOL CO., 2020-2021</div>
+                    </div>
+                    
+                    <div class="award-item">
+                        <div class="award-title" lang="en">Monbukagakusho Honors Scholarship, JASSO, 2019-2020</div>
+                        <div class="award-title" lang="ja">旧文部科学省外国人留学生学習奨励費, 日本学生支援機構, 2019-2020</div>
+                        <div class="award-title" lang="zh">旧文部科学省优秀留学生奖学金, 日本学生支援机构, 2019-2020</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 技能部分 -->
+        <section id="skills">
+            <div class="container">
+                <h2 lang="en">Skills</h2>
+                <h2 lang="ja">スキル</h2>
+                <h2 lang="zh">技能</h2>
+                
+                <div class="skills-container">
+                    <div class="skill-category">
+                        <h3 lang="en">Languages</h3>
+                        <h3 lang="ja">言語</h3>
+                        <h3 lang="zh">语言</h3>
+                        <ul class="skill-list">
+                            <li><i class="fas fa-language"></i> <span lang="en">Chinese (Native)</span><span lang="ja">中国語 (ネイティブ)</span><span lang="zh">中文（母语）</span></li>
+                            <li><i class="fas fa-language"></i> <span lang="en">Japanese (Fluent)</span><span lang="ja">日本語 (流暢)</span><span lang="zh">日语（流利）</span></li>
+                            <li><i class="fas fa-language"></i> <span lang="en">English (Fluent)</span><span lang="ja">英語 (流暢)</span><span lang="zh">英语（流利）</span></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="skill-category">
+                        <h3 lang="en">Programming</h3>
+                        <h3 lang="ja">プログラミング</h3>
+                        <h3 lang="zh">编程</h3>
+                        <ul class="skill-list">
+                            <li><i class="fas fa-code"></i> C#, C++, C, Matlab, Python</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="skill-category">
+                        <h3 lang="en">Tools</h3>
+                        <h3 lang="ja">ツール</h3>
+                        <h3 lang="zh">工具</h3>
+                        <ul class="skill-list">
+                            <li><i class="fas fa-tools"></i> Unity</li>
+                            <li><i class="fas fa-tools"></i> OpenCV</li>
+                            <li><i class="fas fa-tools"></i> Blender</li>
+                            <li><i class="fas fa-tools"></i> Adobe Illustrator, Premiere Pro</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 联系方式部分 -->
+        <section id="contact">
+            <div class="container">
+                <h2 lang="en">Contact</h2>
+                <h2 lang="ja">連絡先</h2>
+                <h2 lang="zh">联系方式</h2>
+                <div class="contact-content">
+                    <div class="contact-info">
+                        <ul>
+                            <li><i class="fas fa-envelope"></i> a1037736871@icloud.com / guo-kai@g.ecc.u-tokyo.ac.jp</li>
+                            <li><i class="fas fa-map-marker-alt"></i> <span lang="en">University of Tokyo, Tokyo, Japan</span><span lang="ja">東京大学, 東京, 日本</span><span lang="zh">东京大学，东京，日本</span></li>
+                            <li><i class="fas fa-university"></i> <span lang="en">Graduate School of Frontier Sciences</span><span lang="ja">新領域創成科学研究科</span><span lang="zh">新领域创成科学研究科</span></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- 缩小后的访问计数器 -->
+                <!-- <div class="visitor-counter">
+                    <div id="clustrmaps-widget-container">
+                        <script type="text/javascript" id="clstr_globe" src="//clustrmaps.com/globe.js?d=nxzJqzBgZvrn7qp5SZu7p0dWcK1Z-_-w6IIH6TcMM8w"></script>
+                    </div>
+                </div> -->
+            </div>
+        </section>
+    </main>
+    
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <p lang="en">&copy; 2025 Kai Guo. All rights reserved.</p>
+            <p lang="ja">&copy; 2025 郭凱. 全著作権所有.</p>
+            <p lang="zh">&copy; 2025 郭凯. 版权所有.</p>
+            <p lang="en">Last updated: April 2025</p>
+            <p lang="ja">最終更新日: 2025年4月</p>
+            <p lang="zh">最后更新: 2025年4月</p>
+        </div>
+    </footer>
+    
+    <!-- 回到顶部按钮 -->
+    <a href="#" class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+    
+    <!-- JavaScript脚本 -->
+    <script>
+        // 语言切换器
+        const langSelect = document.getElementById('langSelect');
+        const body = document.body;
+        
+        langSelect.addEventListener('change', function() {
+            if (this.value === 'zh') {
+                body.classList.add('lang-zh');
+                body.classList.remove('lang-ja');
+            } else if (this.value === 'ja') {
+                body.classList.add('lang-ja');
+                body.classList.remove('lang-zh');
+            } else {
+                body.classList.remove('lang-zh');
+                body.classList.remove('lang-ja');
+            }
+        });
+
+        // 回到顶部按钮
+        const backToTop = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        });
+        
+        backToTop.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+        
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
